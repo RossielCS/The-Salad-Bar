@@ -1,6 +1,41 @@
 @import 'reset';
+@import 'variables';
+@import 'mixins';
 
 body {
+  font-family: 'Baloo Tamma 2', cursive;
+  font-weight: 400;
+}
+
+nav {
+  padding-top: 5vh;
+  padding-right: 3%;
+  background-color: $secondary-color;
+
+  ul {
+    @include flex(row, flex-end, center);
+
+    a {
+      height: 10vh;
+      text-decoration: none;
+
+      &:hover {        
+        background-color: $terciary-color;
+      }
+
+      li {
+        width: 25vh;
+        text-align: center;
+        font-size: 1.3rem;
+        line-height: 11vh;
+        color: $primary-color-dark;
+
+        &:hover {
+          color: $secondary-color;
+        }
+      }
+    }
+  }
 }
 
 #content {
