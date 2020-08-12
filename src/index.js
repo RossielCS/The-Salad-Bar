@@ -1,8 +1,5 @@
-import './style.css';
+import './style.scss';
+import { createSections, addBgToSections } from './home';
 
-function myFuction() {
-  document.getElementById('content').innerHTML = 'It works!';
-  console.log('Hi');
-}
-
-myFuction();
+createSections();
+addBgToSections();

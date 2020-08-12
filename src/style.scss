@@ -1,0 +1,20 @@
+@import 'reset';
+
+body {
+}
+
+#content {
+  display: grid;
+  grid-template-columns: 1fr minmax(768px, 1024px) 1fr;
+}
+
+.main-sections {
+  grid-column: 1/4;
+  height: 100vh;
+}
+
+#section0 {
+  height: 100vh;
+  background-color: #e8e9e5;
+}
+/*# sourceMappingURL=style.css.map */
