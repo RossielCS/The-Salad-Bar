@@ -26,13 +26,32 @@ function addSectionsToArticles() {
   const art6 = document.getElementById('home-art6');
   const arr = [art0, art1, art3, art6];
   for (let i = 0; i < arr.length; i += 1) {
-    const section1 = document.createElement('section');
+    const section1 = document.createElement('div');
     section1.setAttribute('class', 'home-art-sect');
-    const section2 = document.createElement('section');
+    const section2 = document.createElement('div');
     section2.setAttribute('class', 'home-art-sect');
     arr[i].appendChild(section1);
     arr[i].appendChild(section2);
   }
 }
 
-export { createBgDivs, createArticles, addSectionsToArticles };
+function addContentToArt0() {
+  const art0 = document.getElementById('home-art0');
+  const title = document.createElement('h1');
+  title.innerHTML = 'TITLE WEB PAGE';
+  const pElement = document.createElement('p');
+  const text = document.createTextNode('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+  pElement.appendChild(text);
+  const button = document.createElement('button');
+  button.innerHTML = 'BUY SALAD';
+  button.addEventListener('click', () => {
+
+  });
+  art0.lastChild.appendChild(title);
+  art0.lastChild.appendChild(pElement);
+  art0.lastChild.appendChild(button);
+}
+
+export {
+  createBgDivs, createArticles, addSectionsToArticles, addContentToArt0,
+};

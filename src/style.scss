@@ -48,8 +48,13 @@
 header {
   grid-column: 2/3;
   grid-row: 1/2;
+  z-index: 2;
 
   nav {
+    margin: 2vh 0;
+
+    @include flex(row, center, center);
+
     ul {
       @include flex(row, space-between, center);
 
@@ -66,6 +71,20 @@ header {
         }
       }
     }
+
+    #home-logo {
+      margin: 0 30px;
+      height: 100px;
+      width: 100px;
+      background-image: url('./assets/images/home_nav_logo.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 }
 
@@ -77,21 +96,31 @@ main {
     height: 80vh;
     width: 100%;
   }
+}
 
-  #home-art0 {
-    @include flex(row, center, center);
+#home-art0 {
+  padding-top: 70%;
 
-    &:first-child {
-      width: 65%;
-      background-image: url('./assets/images/home_01.png');
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
+  @include flex(row, space-between, center);
+
+  &:first-child {
+    width: 50%;
+    background-image: url('./assets/images/home_art0.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &:last-child {
+    width: 45%;
+
+    p {
+      color: tomato;
+      background-color: violet;
     }
 
-    &:last-child {
-      width: 35%;
-      background-color: violet;
+    button {
+      border-radius: 10px;
     }
   }
 }

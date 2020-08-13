@@ -1,7 +1,10 @@
 import './style.scss';
-import './assets/images/home_01.png';
+import './assets/images/home_art0.png';
 import './assets/images/home_bg02.jpg';
-import { createBgDivs, createArticles, addSectionsToArticles } from './home';
+import './assets/images/home_nav_logo.png';
+import {
+  createBgDivs, createArticles, addSectionsToArticles, addContentToArt0,
+} from './home';
 
 function createHeader(content) {
   const header = document.createElement('header');
@@ -16,24 +19,38 @@ function createNavbar(header) {
 }
 
 function addListToNavbar(navbar, tabNames) {
-  const list = document.createElement('ul');
-  for (let i = 0; i < 4; i += 1) {
-    const aTag = document.createElement('a');
-    aTag.href = `#${tabNames[i]}`.toLowerCase();
-    list.appendChild(aTag);
+  const tempNames = [...tabNames];
+  for (let i = 0; i < 2; i += 1) {
+    const list = document.createElement('ul');
+    for (let j = 0; j < 2; j += 1) {
+      const aTag = document.createElement('a');
+      aTag.href = `#${tempNames[j]}`.toLowerCase();
+      list.appendChild(aTag);
+    }
+    tempNames.splice(0, 2);
+    navbar.appendChild(list);
   }
-  navbar.appendChild(list);
-  return list;
+  return navbar.children;
 }
 
 function addNamesToList(tabNames, list) {
-  const listLength = list.children.length;
-  for (let i = 0; i < listLength; i += 1) {
-    const listElement = document.createElement('li');
-    listElement.setAttribute('id', `nav-li${i}`);
-    listElement.innerHTML = `${tabNames[i]}`;
-    list.children[i].appendChild(listElement);
+  const tempNames = [...tabNames];
+  for (let i = 0; i < list.length; i += 1) {
+    for (let j = 0; j < 2; j += 1) {
+      const listElement = document.createElement('li');
+      listElement.setAttribute('id', `nav-li${j}`);
+      listElement.innerHTML = `${tempNames[j]}`;
+      list[i].children[j].appendChild(listElement);
+    }
+    tempNames.splice(0, 2);
   }
+}
+
+function addLogoToNav(navbar) {
+  const logo = document.createElement('div');
+  logo.setAttribute('id', 'home-logo');
+  navbar.insertBefore(logo, navbar.childNodes[1]);
+  return logo;
 }
 
 function createMain(content) {
@@ -55,8 +72,10 @@ const navbar = createNavbar(header);
 const list = addListToNavbar(navbar, tabNames);
 
 addNamesToList(tabNames, list);
+addLogoToNav(navbar);
 const main = createMain(content);
 createFooter(content);
 createBgDivs(content);
 createArticles(main);
 addSectionsToArticles();
+addContentToArt0();
