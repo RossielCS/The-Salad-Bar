@@ -1,5 +1,5 @@
 import './style.scss';
-import { createSections, addBgToSections } from './home';
+import { createBgSections, createArticles } from './home';
 
 function createNavbar() {
   const body = document.getElementsByTagName('body')[0];
@@ -31,10 +31,30 @@ function addNamesToList(names, list) {
   }
 }
 
+function createMain() {
+  const body = document.getElementsByTagName('body')[0];
+  const main = document.createElement('main');
+  body.insertBefore(main, body.childNodes[1]);
+}
+
+function addContentToMain() {
+  const content = document.getElementById('content');
+  const main = document.getElementsByTagName('main')[0];
+  main.appendChild(content);
+}
+
+function createFooter() {
+  const body = document.getElementsByTagName('body')[0];
+  const footer = document.createElement('footer');
+  body.appendChild(footer);
+}
+
 const listNames = ['HOME', 'MENU', 'ABOUT US', 'CONTACT'];
 
-
-createSections();
-addBgToSections();
 const list = addListToNavbar(createNavbar(), listNames);
 addNamesToList(listNames, list);
+createMain();
+addContentToMain();
+createFooter();
+createBgSections();
+createArticles();

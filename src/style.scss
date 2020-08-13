@@ -3,53 +3,63 @@
 @import 'mixins';
 
 body {
+  display: grid;
+  grid-template-columns: 1fr minmax(768px, 1024px) 1fr;
   font-family: 'Baloo Tamma 2', cursive;
   font-weight: 400;
 }
 
-nav {
-  padding-top: 5vh;
-  padding-right: 3%;
-  background-color: $secondary-color;
+header {
+  grid-column: 2/3;
+}
 
+nav {
   ul {
     @include flex(row, flex-end, center);
 
     a {
-      height: 10vh;
+      height: 8vh;
       text-decoration: none;
 
-      &:hover {        
+      &:hover {
         background-color: $terciary-color;
       }
 
       li {
-        width: 25vh;
+        width: 150px;
         text-align: center;
-        font-size: 1.3rem;
-        line-height: 11vh;
+        font-size: 1.1rem;
+        line-height: 8vh;
         color: $primary-color-dark;
 
         &:hover {
-          color: $secondary-color;
+          color: $primary-color-light;
         }
       }
     }
   }
 }
 
+main {
+  grid-column: 2/3;
+}
+
 #content {
-  display: grid;
-  grid-template-columns: 1fr minmax(768px, 1024px) 1fr;
+  grid-column: 2/3;
 }
 
-.main-sections {
-  grid-column: 1/4;
+.container-bg {
+  z-index: -1;
+  top: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.content-bg-divs {
   height: 100vh;
 }
 
-#section0 {
-  height: 100vh;
-  background-color: #e8e9e5;
+#bg-div0 {
+  background-color: $secondary-color;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,15 +1,23 @@
-function createSections() {
-  const parent = document.getElementById('content');
+function createBgSections() {
+  const content = document.getElementsByTagName('main')[0];
+  const container = document.createElement('div');
+  container.setAttribute('class', 'container-bg');
   for (let i = 0; i < 4; i += 1) {
-    const section = document.createElement('section');
-    section.setAttribute('id', `section${i}`);
-    section.setAttribute('class', 'main-sections');
-    parent.appendChild(section);
+    const section = document.createElement('div');
+    section.setAttribute('id', `bg-div${i}`);
+    section.setAttribute('class', 'content-bg-divs');
+    container.appendChild(section);
+  }
+  content.insertBefore(container, content.childNodes[0]);
+}
+
+function createArticles() {
+  const content = document.getElementById('content');
+  for (let i = 0; i < 4; i += 1) {
+    const article = document.createElement('article');
+    content.appendChild(article);
   }
 }
 
-function addBgToSections() {
-  const sections = document.getElementsByClassName('main-sections');
-}
 
-export { createSections, addBgToSections };
+export { createBgSections, createArticles };
