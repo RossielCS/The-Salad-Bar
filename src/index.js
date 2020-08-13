@@ -1,7 +1,7 @@
 import './style.scss';
 import './assets/images/home_01.png';
 import './assets/images/home_bg02.jpg';
-import createBgDivs from './home';
+import { createBgDivs, createArticles, addSectionsToArticles } from './home';
 
 function createHeader(content) {
   const header = document.createElement('header');
@@ -54,8 +54,9 @@ const header = createHeader(content);
 const navbar = createNavbar(header);
 const list = addListToNavbar(navbar, tabNames);
 
-addListToNavbar(navbar, tabNames);
 addNamesToList(tabNames, list);
-createMain(content);
+const main = createMain(content);
 createFooter(content);
 createBgDivs(content);
+createArticles(main);
+addSectionsToArticles();

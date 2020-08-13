@@ -5,7 +5,7 @@
 #content {
   display: grid;
   grid-template-columns: 1fr minmax(768px, 1024px) 1fr;
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: 50px repeat(7, 80vh);
   font-family: 'Baloo Tamma 2', cursive;
   font-weight: 400;
 }
@@ -43,7 +43,56 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
-
 }
 
+header {
+  grid-column: 2/3;
+  grid-row: 1/2;
+
+  nav {
+    ul {
+      @include flex(row, space-between, center);
+
+      a {
+        padding: 3vh 0;
+        width: 120px;
+        text-align: center;
+        text-decoration: none;
+        color: $primary-color-dark;
+
+        &:hover {
+          background-color: $primary-color-medium;
+          color: $primary-color-light;
+        }
+      }
+    }
+  }
+}
+
+main {
+  grid-column: 2/3;
+  grid-row: 2/9;
+
+  article {
+    height: 80vh;
+    width: 100%;
+  }
+
+  #home-art0 {
+    @include flex(row, center, center);
+
+    &:first-child {
+      width: 65%;
+      background-image: url('./assets/images/home_01.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    &:last-child {
+      width: 35%;
+      background-color: violet;
+    }
+  }
+}
 /*# sourceMappingURL=style.css.map */
