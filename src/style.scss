@@ -2,64 +2,48 @@
 @import 'variables';
 @import 'mixins';
 
-body {
+#content {
   display: grid;
   grid-template-columns: 1fr minmax(768px, 1024px) 1fr;
+  grid-template-rows: repeat(5, 1fr);
   font-family: 'Baloo Tamma 2', cursive;
   font-weight: 400;
 }
 
-header {
-  grid-column: 2/3;
-}
-
-nav {
-  ul {
-    @include flex(row, flex-end, center);
-
-    a {
-      height: 8vh;
-      text-decoration: none;
-
-      &:hover {
-        background-color: $terciary-color;
-      }
-
-      li {
-        width: 150px;
-        text-align: center;
-        font-size: 1.1rem;
-        line-height: 8vh;
-        color: $primary-color-dark;
-
-        &:hover {
-          color: $primary-color-light;
-        }
-      }
-    }
-  }
-}
-
-main {
-  grid-column: 2/3;
-}
-
-#content {
-  grid-column: 2/3;
-}
-
-.container-bg {
-  z-index: -1;
-  top: 0;
-  position: absolute;
+.container-home-bg {
+  grid-column: 1/4;
+  grid-row: 1/6;
   width: 100%;
+
+  div {
+    height: 80vh;
+  }
+
+  #home-bg0,
+  #home-bg4 {
+    background-color: $secondary-color;
+  }
+
+  #home-bg1,
+  #home-bg3,
+  #home-bg6 {
+    background-color: $primary-color-light;
+  }
+
+  #home-bg2 {
+    background-image: url('./assets/images/home_bg02.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  #home-bg5 {
+    background-image: url('./assets/images/home_bg06.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
 }
 
-.content-bg-divs {
-  height: 100vh;
-}
-
-#bg-div0 {
-  background-color: $secondary-color;
-}
 /*# sourceMappingURL=style.css.map */

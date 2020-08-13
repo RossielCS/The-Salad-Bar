@@ -1,60 +1,61 @@
 import './style.scss';
-import { createBgSections, createArticles } from './home';
+import './assets/images/home_01.png';
+import './assets/images/home_bg02.jpg';
+import createBgDivs from './home';
 
-function createNavbar() {
-  const body = document.getElementsByTagName('body')[0];
+function createHeader(content) {
   const header = document.createElement('header');
+  content.appendChild(header);
+  return header;
+}
+
+function createNavbar(header) {
   const navbar = document.createElement('nav');
-  body.insertBefore(header, body.childNodes[0]);
   header.appendChild(navbar);
   return navbar;
 }
 
-function addListToNavbar(navbar, names) {
+function addListToNavbar(navbar, tabNames) {
   const list = document.createElement('ul');
   for (let i = 0; i < 4; i += 1) {
     const aTag = document.createElement('a');
-    aTag.href = `#${names[i]}`.toLowerCase();
+    aTag.href = `#${tabNames[i]}`.toLowerCase();
     list.appendChild(aTag);
   }
   navbar.appendChild(list);
   return list;
 }
 
-function addNamesToList(names, list) {
+function addNamesToList(tabNames, list) {
   const listLength = list.children.length;
   for (let i = 0; i < listLength; i += 1) {
     const listElement = document.createElement('li');
     listElement.setAttribute('id', `nav-li${i}`);
-    listElement.innerHTML = `${names[i]}`;
+    listElement.innerHTML = `${tabNames[i]}`;
     list.children[i].appendChild(listElement);
   }
 }
 
-function createMain() {
-  const body = document.getElementsByTagName('body')[0];
+function createMain(content) {
   const main = document.createElement('main');
-  body.insertBefore(main, body.childNodes[1]);
+  content.appendChild(main);
+  return main;
 }
 
-function addContentToMain() {
-  const content = document.getElementById('content');
-  const main = document.getElementsByTagName('main')[0];
-  main.appendChild(content);
-}
-
-function createFooter() {
-  const body = document.getElementsByTagName('body')[0];
+function createFooter(content) {
   const footer = document.createElement('footer');
-  body.appendChild(footer);
+  content.appendChild(footer);
+  return footer;
 }
 
-const listNames = ['HOME', 'MENU', 'ABOUT US', 'CONTACT'];
+const content = document.getElementById('content');
+const tabNames = ['HOME', 'MENU', 'ABOUT US', 'CONTACT'];
+const header = createHeader(content);
+const navbar = createNavbar(header);
+const list = addListToNavbar(navbar, tabNames);
 
-const list = addListToNavbar(createNavbar(), listNames);
-addNamesToList(listNames, list);
-createMain();
-addContentToMain();
-createFooter();
-createBgSections();
-createArticles();
+addListToNavbar(navbar, tabNames);
+addNamesToList(tabNames, list);
+createMain(content);
+createFooter(content);
+createBgDivs(content);

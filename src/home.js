@@ -1,23 +1,13 @@
-function createBgSections() {
-  const content = document.getElementsByTagName('main')[0];
-  const container = document.createElement('div');
-  container.setAttribute('class', 'container-bg');
-  for (let i = 0; i < 4; i += 1) {
-    const section = document.createElement('div');
-    section.setAttribute('id', `bg-div${i}`);
-    section.setAttribute('class', 'content-bg-divs');
-    container.appendChild(section);
+function createBgDivs(content) {
+  const bgDivContainer = document.createElement('div');
+  bgDivContainer.setAttribute('class', 'container-home-bg');
+  for (let i = 0; i < 7; i += 1) {
+    const bgDiv = document.createElement('div');
+    bgDiv.setAttribute('id', `home-bg${i}`);
+    bgDivContainer.appendChild(bgDiv);
   }
-  content.insertBefore(container, content.childNodes[0]);
+  content.insertBefore(bgDivContainer, content.childNodes[0]);
+  return bgDivContainer;
 }
 
-function createArticles() {
-  const content = document.getElementById('content');
-  for (let i = 0; i < 4; i += 1) {
-    const article = document.createElement('article');
-    content.appendChild(article);
-  }
-}
-
-
-export { createBgSections, createArticles };
+export default createBgDivs;
