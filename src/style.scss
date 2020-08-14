@@ -3,11 +3,13 @@
 @import 'mixins';
 
 #content {
+  margin: auto;
   display: grid;
-  grid-template-columns: 1fr minmax(768px, 1024px) 1fr;
-  grid-template-rows: 50px repeat(7, 80vh);
+  grid-template-columns: 1fr minmax(768px, 1366px) 1fr;
+  grid-template-rows: 150px repeat(7, $view-height);
   font-family: 'Baloo Tamma 2', cursive;
   font-weight: 400;
+  color: $primary-color-dark;
 }
 
 .container-home-bg {
@@ -16,12 +18,16 @@
   width: 100%;
 
   div {
-    height: 80vh;
+    height: $view-height;
   }
 
   #home-bg0,
   #home-bg4 {
     background-color: $secondary-color;
+  }
+
+  #home-bg1 {
+    height: calc($view-height + 150px);
   }
 
   #home-bg1,
@@ -31,17 +37,11 @@
   }
 
   #home-bg2 {
-    background-image: url('./assets/images/home_bg02.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    @include background-image('home_bg02.jpg', center, no-repeat, cover);
   }
 
   #home-bg5 {
-    background-image: url('./assets/images/home_bg06.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    @include background-image('home_bg06.jpg', center, no-repeat, cover);
   }
 }
 
@@ -49,20 +49,24 @@ header {
   grid-column: 2/3;
   grid-row: 1/2;
   z-index: 2;
+  line-height: 150px;
+  font-weight: 500;
 
   nav {
-    margin: 2vh 0;
-
     @include flex(row, center, center);
 
     ul {
-      @include flex(row, space-between, center);
+      @include flex(row, center, center);
+
+      list-style: none;
 
       a {
-        padding: 3vh 0;
         width: 120px;
+        margin: 0 30px;
         text-align: center;
         text-decoration: none;
+        font-size: 1.2rem;
+        white-space: nowrap;
         color: $primary-color-dark;
 
         &:hover {
@@ -70,16 +74,21 @@ header {
           color: $primary-color-light;
         }
       }
+
+      .points-li {
+        height: 10px;
+        width: 10px;
+
+        @include background-image('home_nav_logo.png', center, no-repeat, contain);
+      }
     }
 
     #home-logo {
-      margin: 0 30px;
       height: 100px;
       width: 100px;
-      background-image: url('./assets/images/home_nav_logo.png');
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
+      margin: 0 30px;
+
+      @include background-image('home_nav_logo.png', center, no-repeat, contain);
 
       &:hover {
         cursor: pointer;
@@ -93,35 +102,59 @@ main {
   grid-row: 2/9;
 
   article {
-    height: 80vh;
+    height: $view-height;
     width: 100%;
   }
 }
 
 #home-art0 {
-  padding-top: 70%;
-
   @include flex(row, space-between, center);
 
-  &:first-child {
-    width: 50%;
-    background-image: url('./assets/images/home_art0.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+  div:nth-child(1) {
+    width: 60%;
+    height: 100%;
+
+    @include background-image('home_art0.png', 20% 30%, no-repeat, contain);
   }
 
-  &:last-child {
-    width: 45%;
+  div:nth-child(2) {
+    width: 40%;
+    height: 100%;
+    margin-top: 50px;
+    margin-left: 30px;
+
+    h1 {
+      margin-bottom: 30px;
+      font-family: 'Amiri', serif;
+      font-size: 4rem;
+    }
 
     p {
-      color: tomato;
-      background-color: violet;
+      margin-bottom: 30px;
+      font-size: 1.3rem;
+      line-height: 1.9rem;
     }
 
     button {
-      border-radius: 10px;
+      padding: 12px 21px 8px 21px;
+      font-size: 1.6rem;
+      font-weight: 500;
+      border: none;
+      font-family: 'Baloo Tamma 2', cursive;
+      color: $primary-color-light;
+      background-color: $primary-color-dark;
+
+      &:hover {
+        background-color: $primary-color-light;
+        color: $primary-color-dark;
+        cursor: pointer;
+      }
     }
   }
+}
+
+#home-art1 {
+  //height: calc(80vh - 150px);
+  background-color: yellow;
 }
 /*# sourceMappingURL=style.css.map */

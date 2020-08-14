@@ -53,6 +53,16 @@ function addLogoToNav(navbar) {
   return logo;
 }
 
+function addPointsBetweenLi(navbar) {
+  const point1 = document.createElement('div');
+  point1.setAttribute('class', 'points-li');
+  const point2 = document.createElement('div');
+  point2.setAttribute('class', 'points-li');
+
+  navbar.children[0].insertBefore(point1, navbar.children[0].children[1]);
+  navbar.children[2].insertBefore(point2, navbar.children[2].children[1]);
+}
+
 function createMain(content) {
   const main = document.createElement('main');
   content.appendChild(main);
@@ -79,3 +89,4 @@ createBgDivs(content);
 createArticles(main);
 addSectionsToArticles();
 addContentToArt0();
+addPointsBetweenLi(navbar);

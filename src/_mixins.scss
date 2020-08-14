@@ -4,3 +4,10 @@
   justify-content: $justify;
   align-items: $align;
 }
+
+@mixin background-image($url, $position, $repeat, $size) {
+  background-image: url('./assets/images/#{$url}');
+  background-position: $position;
+  background-repeat: $repeat;
+  background-size: $size;
+}

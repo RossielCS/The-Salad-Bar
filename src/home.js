@@ -36,20 +36,20 @@ function addSectionsToArticles() {
 }
 
 function addContentToArt0() {
-  const art0 = document.getElementById('home-art0');
+  const art0 = document.getElementById('home-art0').children[1];
   const title = document.createElement('h1');
-  title.innerHTML = 'TITLE WEB PAGE';
+  title.innerHTML = 'Pellentesque dignissim enim sit amet venenatis urna cursus eget.';
   const pElement = document.createElement('p');
-  const text = document.createTextNode('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+  const text = document.createTextNode('Sed egestas egestas fringilla phasellus faucibus. Sed pulvinar proin gravida hendrerit lectus a. Iaculis urna id volutpat lacus laoreet non. Nunc eget lorem dolor sed viverra ipsum nunc.');
   pElement.appendChild(text);
   const button = document.createElement('button');
   button.innerHTML = 'BUY SALAD';
   button.addEventListener('click', () => {
 
   });
-  art0.lastChild.appendChild(title);
-  art0.lastChild.appendChild(pElement);
-  art0.lastChild.appendChild(button);
+  art0.appendChild(title);
+  art0.appendChild(pElement);
+  art0.appendChild(button);
 }
 
 export {
