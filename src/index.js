@@ -20,3 +20,4 @@ homeFunctions.addSectionsToArticles();
 homeFunctions.addContentToArt0();
 // homeFunctions.addPointsBetweenLi(navbar);
 homeFunctions.addContentToArt1();
+homeFunctions.addContentToArt2();

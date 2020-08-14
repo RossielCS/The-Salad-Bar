@@ -27,7 +27,7 @@
   }
 
   #home-bg1 {
-    height: calc($view-height + 150px);
+    height: calc(#{$view-height} + 150px);
   }
 
   #home-bg1,
@@ -107,8 +107,44 @@ main {
   }
 }
 
+#home-art2 {
+  @include flex(column, center, center);
+
+  font-family: 'Amiri', serif;
+  font-weight: 700;
+  //color: $primary-color-medium;
+
+  h3 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+  }
+
+  h4 {
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+  }
+
+  button {
+    padding: 16px 30px 10px 30px;
+    font-family: 'Baloo Tamma 2', cursive;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: $primary-color-dark;
+    border: none;
+    background-color: $primary-color-light;
+
+    &:hover {
+      color: $primary-color-light;
+      background-color: $primary-color-dark;
+      cursor: pointer;
+    }
+  }
+}
+
 #home-art1 {
-  @include flex(row, space-between, center);
+  padding-top: 70px;
+
+  @include flex(row, space-between, flex-start);
 
   text-align: justify;
 
