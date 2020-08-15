@@ -23,6 +23,13 @@ const ElementFactory = (newElement, parent, typeAtr, nameAtr) => {
   };
 }; */
 
+export const shortMenuInfo = {
+  '01': 'Make Store-Bought Tomato Sauce Taste 10x Better',
+  '02': 'The $3.99 Lunch Our Editor-in-Chief Swears By',
+  '03': 'Red Leaf Salad with Tofu and Sesame Dressing',
+  '04': 'Set Your Kitchen, Save Your Body',
+};
+
 export function creator(parent, newElement, position) {
   const child = document.createElement(`${newElement}`);
   if (position === 'append') {
@@ -143,4 +150,32 @@ export function addContentToArt2() {
   button.innerHTML = 'View Available Choices';
   button.addEventListener('click', () => {
   });
+}
+
+function menuShortList(parent) {
+  const menuList = creator(parent, 'ul', 'append');
+  for (let i = 0; i < 4; i += 1) {
+    const container = creator(menuList, 'div', 'append');
+    container.setAttribute('id', `short-menu${i}`);
+    creator(container, 'p', 'append');
+    creator(container, 'li', 'append');
+  }
+  return menuList;
+}
+
+export function addContentToArt3() {
+  const art3Child0 = document.getElementById('home-art3').children[0];
+  const textChild0 = creator(art3Child0, 'p', 'append');
+  textChild0.innerHTML = 'Red Leaf Salad With Tofu and Sesame Dressing';
+
+  const art3Child1 = document.getElementById('home-art3').children[1];
+  menuShortList(art3Child1);
+}
+
+export function shortMenuContent(shortMenuInfo) {
+  for (let i = 0; i < 4; i += 1) {
+    const menu = document.getElementById(`short-menu${i}`);
+    menu.children[0].innerHTML = Object.keys(shortMenuInfo)[i];
+    menu.children[1].innerHTML = shortMenuInfo[`0${i+1}`];
+  }
 }

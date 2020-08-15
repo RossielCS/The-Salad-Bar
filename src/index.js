@@ -21,3 +21,5 @@ homeFunctions.addContentToArt0();
 // homeFunctions.addPointsBetweenLi(navbar);
 homeFunctions.addContentToArt1();
 homeFunctions.addContentToArt2();
+homeFunctions.addContentToArt3();
+homeFunctions.shortMenuContent(homeFunctions.shortMenuInfo);

@@ -107,6 +107,29 @@ main {
   }
 }
 
+#home-art3 {
+  padding: 0 30px;
+
+  @include flex(row, space-between, center);
+
+  .home-art-sect:nth-child(1) {
+    width: 50%;
+    height: 100%;
+
+    @include background-image('home_art3.png', center, no-repeat, contain);
+  }
+
+  div:nth-child(2) {
+    width: 50%;
+
+    ul {
+      div {
+        @include flex(row, flex-start, center);
+      }
+    }
+  }
+}
+
 #home-art2 {
   @include flex(column, center, center);
 
