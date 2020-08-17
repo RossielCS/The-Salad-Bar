@@ -49,20 +49,19 @@ header {
   grid-column: 2/3;
   grid-row: 1/2;
   z-index: 2;
-  line-height: 150px;
+  margin: 20px 0;
+  line-height: 100px;
   font-weight: 500;
 
   nav {
-    @include flex(row, center, center);
+    max-width: 850px;
+    margin: auto;
 
     ul {
-      @include flex(row, center, center);
-
-      list-style: none;
+      @include flex(row, space-around, center);
 
       a {
-        width: 120px;
-        margin: 0 30px;
+        width: 100px;
         text-align: center;
         text-decoration: none;
         font-size: 1.2rem;
@@ -70,23 +69,15 @@ header {
         color: $primary-color-dark;
 
         &:hover {
-          background-color: $primary-color-medium;
-          color: $primary-color-light;
+          height: 100px;
+          border-bottom: solid 5px $primary-color-medium;
         }
-      }
-
-      .points-li {
-        height: 10px;
-        width: 10px;
-
-        @include background-image('home_nav_logo.png', center, no-repeat, contain);
       }
     }
 
     #home-logo {
       height: 100px;
-      width: 100px;
-      margin: 0 30px;
+      min-width: 100px;
 
       @include background-image('home_nav_logo.png', center, no-repeat, contain);
 
@@ -107,6 +98,7 @@ main {
   }
 }
 
+/*
 #home-art3 {
   padding: 0 30px;
 
@@ -232,6 +224,6 @@ main {
     }
   }
 }
-
+*/
 
 /*# sourceMappingURL=style.css.map */

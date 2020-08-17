@@ -1,3 +1,5 @@
+import { creator } from './header';
+
 /*
 const ElementFactory = (newElement, parent, typeAtr, nameAtr) => {
   const getName = () => name;
@@ -30,52 +32,6 @@ export const shortMenuInfo = {
   '04': 'Set Your Kitchen, Save Your Body',
 };
 
-export function creator(parent, newElement, position) {
-  const child = document.createElement(`${newElement}`);
-  if (position === 'append') {
-    parent.appendChild(child);
-  } else {
-    parent.insertBefore(child, position);
-  }
-  return child;
-}
-
-export function addListToNavbar(navbar, tabNames) {
-  const tempNames = [...tabNames];
-  for (let i = 0; i < 2; i += 1) {
-    const list = creator(navbar, 'ul', 'append');
-    for (let j = 0; j < 2; j += 1) {
-      const aTag = creator(list, 'a', 'append');
-      aTag.href = `#${tempNames[j]}`.toLowerCase();
-    }
-    tempNames.splice(0, 2);
-  }
-  return navbar.children;
-}
-
-export function addNamesToList(tabNames, list) {
-  const tempNames = [...tabNames];
-  for (let i = 0; i < list.length; i += 1) {
-    for (let j = 0; j < 2; j += 1) {
-      const listElement = creator(list[i].children[j], 'li', 'append');
-      listElement.setAttribute('id', `nav-li${j}`);
-      listElement.innerHTML = `${tempNames[j]}`;
-    }
-    tempNames.splice(0, 2);
-  }
-}
-
-export function addLogoToNav(navbar) {
-  const logo = creator(navbar, 'div', navbar.childNodes[1]);
-  logo.setAttribute('id', 'home-logo');
-  return logo;
-}
-
-/* export function addPointsBetweenLi(navbar) {
-  const point1 = creator(navbar, 'div', navbar.childNodes[0].childNodes[1]);
-  point1.setAttribute('class', 'points-li');
-} */
-
 export function createBgDivs(content) {
   const bgDivContainer = creator(content, 'div', content.childNodes[0]);
   bgDivContainer.setAttribute('class', 'container-home-bg');
@@ -93,7 +49,7 @@ export function createArticles(main) {
   }
   return main.children;
 }
-
+/*
 export function addSectionsToArticles() {
   const arr = [
     document.getElementById('home-art0'),
@@ -112,10 +68,10 @@ export function addSectionsToArticles() {
 export function addContentToArt0() {
   const art0 = document.getElementById('home-art0').children[1];
   const title = creator(art0, 'h1', 'append');
-  title.innerHTML = 'Pellentesque dignissim enim sit amet venenatis urna cursus eget.';
+  title.innerHTML = 'Pellentesque dignissim enim sit amet venenatis.';
 
   const pElement = creator(art0, 'p', 'append');
-  pElement.innerHTML = 'Sed egestas egestas fringilla phasellus faucibus. Sed pulvinar proin gravida hendrerit lectus a. Iaculis urna id volutpat lacus laoreet non. Nunc eget lorem dolor sed viverra ipsum nunc.';
+  pElement.innerHTML = 'Sed egestas egestas fringilla phasellus faucibus. Sed pulvinar proin gravida hendrerit lectus a.';
 
   const button = creator(art0, 'button', 'append');
   button.innerHTML = 'BUY SALAD';
@@ -176,6 +132,7 @@ export function shortMenuContent(shortMenuInfo) {
   for (let i = 0; i < 4; i += 1) {
     const menu = document.getElementById(`short-menu${i}`);
     menu.children[0].innerHTML = Object.keys(shortMenuInfo)[i];
-    menu.children[1].innerHTML = shortMenuInfo[`0${i+1}`];
+    menu.children[1].innerHTML = shortMenuInfo[`0${i + 1}`];
   }
 }
+*/
