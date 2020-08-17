@@ -6,6 +6,8 @@ import * as headerFunctions from './header';
 import * as homeFunctions from './home';
 import * as heroFunctions from './hero-shot';
 import * as aboutFunctions from './about-us';
+import * as buildFunctions from './build-salad';
+import * as dealsFunctions from './deals';
 
 const content = document.getElementById('content');
 
@@ -21,6 +23,6 @@ homeFunctions.createArticles(main);
 homeFunctions.addSectionsToArticles();
 heroFunctions.addContentToHeroShot();
 aboutFunctions.addContentAboutUs();
-/*  homeFunctions.addContentToArt2();
-homeFunctions.addContentToArt3();
-homeFunctions.shortMenuContent(homeFunctions.shortMenuInfo); */
+buildFunctions.addContentToBuildSalad();
+dealsFunctions.addContentToDeals();
+dealsFunctions.shortMenuContent();

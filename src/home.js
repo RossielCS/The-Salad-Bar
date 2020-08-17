@@ -61,49 +61,7 @@ export function addSectionsToArticles() {
   for (let i = 0; i < arr.length; i += 1) {
     for (let j = 0; j < 2; j += 1) {
       const section = creator(arr[i], 'div', 'append');
-      section.setAttribute('class', 'art-sect');
+      section.setAttribute('class', `${arr[i].id}-sect`);
     }
   }
 }
-
-/*
-export function addContentToArt2() {
-  const art2 = document.getElementById('home-art2');
-  const text1 = creator(art2, 'h3', 'append');
-  text1.innerHTML = 'Be the Chef today!';
-  const text2 = creator(art2, 'h4', 'append');
-  text2.innerHTML = 'BUILD YOUR OWN SALAD';
-  const button = creator(art2, 'button', 'append');
-  button.innerHTML = 'View Available Choices';
-  button.addEventListener('click', () => {
-  });
-}
-
-function menuShortList(parent) {
-  const menuList = creator(parent, 'ul', 'append');
-  for (let i = 0; i < 4; i += 1) {
-    const container = creator(menuList, 'div', 'append');
-    container.setAttribute('id', `short-menu${i}`);
-    creator(container, 'p', 'append');
-    creator(container, 'li', 'append');
-  }
-  return menuList;
-}
-
-export function addContentToArt3() {
-  const art3Child0 = document.getElementById('home-art3').children[0];
-  const textChild0 = creator(art3Child0, 'p', 'append');
-  textChild0.innerHTML = 'Red Leaf Salad With Tofu and Sesame Dressing';
-
-  const art3Child1 = document.getElementById('home-art3').children[1];
-  menuShortList(art3Child1);
-}
-
-export function shortMenuContent(shortMenuInfo) {
-  for (let i = 0; i < 4; i += 1) {
-    const menu = document.getElementById(`short-menu${i}`);
-    menu.children[0].innerHTML = Object.keys(shortMenuInfo)[i];
-    menu.children[1].innerHTML = shortMenuInfo[`0${i + 1}`];
-  }
-}
-*/
