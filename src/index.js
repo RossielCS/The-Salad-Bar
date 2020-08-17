@@ -4,6 +4,8 @@ import './assets/images/home_bg02.jpg';
 import './assets/images/home_nav_logo.png';
 import * as headerFunctions from './header';
 import * as homeFunctions from './home';
+import * as heroFunctions from './hero-shot';
+import * as aboutFunctions from './about-us';
 
 const content = document.getElementById('content');
 
@@ -14,11 +16,11 @@ headerFunctions.addUlistToNav(navbar, tabNames);
 
 const main = headerFunctions.creator(content, 'main');
 headerFunctions.creator(content, 'footer');
-homeFunctions.createBgDivs(content);
+homeFunctions.createBackground(content);
 homeFunctions.createArticles(main);
-/* homeFunctions.addSectionsToArticles();
-homeFunctions.addContentToArt0();
-homeFunctions.addContentToArt1();
-homeFunctions.addContentToArt2();
+homeFunctions.addSectionsToArticles();
+heroFunctions.addContentToHeroShot();
+aboutFunctions.addContentAboutUs();
+/*  homeFunctions.addContentToArt2();
 homeFunctions.addContentToArt3();
 homeFunctions.shortMenuContent(homeFunctions.shortMenuInfo); */
