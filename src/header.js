@@ -1,4 +1,6 @@
-export function creator(parent, newElement, position) {
+const tabNames = ['MENU', 'PROMOTIONS', 'ABOUT US', 'CONTACT'];
+
+function creator(parent, newElement, position) {
   const child = document.createElement(`${newElement}`);
   if (position === 'append') {
     parent.appendChild(child);
@@ -14,7 +16,7 @@ function addLiToATag(aTag, tempName, i) {
   li.innerHTML = `${tempName}`;
 }
 
-export function addUlistToNav(navbar, tabNames) {
+function addUlistToNav(navbar, tabNames) {
   const tempNames = [...tabNames];
   const list = creator(navbar, 'ul', 'append');
   for (let i = 0; i < 4; i += 1) {
@@ -28,3 +30,13 @@ export function addUlistToNav(navbar, tabNames) {
   }
   return navbar.children;
 }
+
+function createHeader(content, tabNames) {
+  const header = creator(content, 'header');
+  const navbar = creator(header, 'nav');
+  addUlistToNav(navbar, tabNames);
+
+  return header;
+}
+
+export { tabNames, createHeader, creator };

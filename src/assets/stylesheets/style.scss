@@ -6,12 +6,12 @@
   margin: auto;
   display: grid;
   grid-template-columns: 1fr minmax(768px, 1366px) 1fr;
-  grid-template-rows: 150px repeat(7, $view-height);
+  grid-template-rows: 100px repeat(auto, minmax(500px, $view-height));
   font-family: 'Baloo Tamma 2', cursive;
   font-weight: 400;
   color: $primary-color-dark;
 }
-
+/*
 .container-bg {
   grid-column: 1/4;
   grid-row: 1/6;
@@ -44,7 +44,7 @@
     @include background-image('home_bg06.jpg', center, no-repeat, cover);
   }
 }
-
+*/
 header {
   grid-column: 2/3;
   grid-row: 1/2;
@@ -61,7 +61,7 @@ header {
       @include flex(row, space-around, center);
 
       a {
-        width: 100px;
+        width: 120px;
         text-align: center;
         text-decoration: none;
         font-size: 1.2rem;
@@ -90,52 +90,96 @@ header {
 
 main {
   grid-column: 2/3;
-  grid-row: 2/9;
+  grid-row: 2/3;
 
   article {
-    height: $view-height;
+    height: 80vh;
     width: 100%;
   }
 }
 
-#art1 {
-  padding-top: 70px;
+.hidden {
+  display: none;
+}
 
-  @include flex(row, space-between, flex-start);
+#art-home {
+  @include flex(row, space-between, center);
 
-  text-align: start;
+  .art-home-sect:nth-child(1) {
+    height: 100%;
+    flex: 2 1 50%;
 
-  h2 {
-    margin-bottom: 30px;
-    font-size: 3rem;
-    font-family: 'Amiri', serif;
+    @include background-image('home_00.png', center, no-repeat, 80%);
   }
 
-  p {
-    font-size: 1.5rem;
-    line-height: 1.9rem;
-  }
+  .art-home-sect:nth-child(2) {
+    height: 100%;
+    padding-right: 4vw;
+    flex: 1 2 45%;
 
-  div {
-    padding: 0 60px;
-  }
+    @include flex(column, center, flex-start);
 
-  .art1-sect {
-    width: 50%;
-  }
+    h1 {
+      margin-bottom: 20px;
+      font-family: 'Amiri', serif;
+      font-size: 3.3rem;
+    }
 
-  .art1-sect:last-child {
-    h2 {
-      @include background-image('title_bg.jpg', center, repeat, cover);
+    p {
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+      line-height: 1.9rem;
+    }
 
-      color: transparent;
-      background-clip: content-box;
-      -webkit-background-clip: text;
-      background-attachment: fixed;
+    button {
+      padding: 12px 21px 8px 21px;
+      font-size: 1.6rem;
+      font-weight: 500;
+      border: none;
+      font-family: 'Baloo Tamma 2', cursive;
+      color: $primary-color-light;
+      background-color: $primary-color-dark;
+
+      &:hover {
+        background-color: $secondary-color;
+        color: $primary-color-dark;
+        cursor: pointer;
+      }
     }
   }
 }
 
+#art-about-us {
+  padding-top: 70px;
+  text-align: start;
+
+  @include background-image('aboutus_01.png', right, repeat, cover);
+
+  .art-about-us-sect {
+    margin-top: 8%;
+    margin-left: 30%;
+    padding: 4%;
+    max-width: 45%;
+    background-color: rgba(255, 255, 255, 0.9);
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 3.7rem;
+      font-family: 'Amiri', serif;
+
+      // color: transparent;
+      // background-clip: content-box;
+      // -webkit-background-clip: text;
+      // background-attachment: fixed;
+    }
+
+    p {
+      font-size: 1.5rem;
+      line-height: 1.9rem;
+    }
+  }
+}
+/*
 #art2 {
   @include flex(column, center, center);
 
@@ -287,5 +331,5 @@ main {
     }
   }
 }
-
+*/
 /*# sourceMappingURL=style.css.map */

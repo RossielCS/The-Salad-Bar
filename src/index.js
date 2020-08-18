@@ -2,22 +2,38 @@ import './assets/stylesheets/style.scss';
 import './assets/images/home_art0.png';
 import './assets/images/home_bg02.jpg';
 import './assets/images/home_nav_logo.png';
-import * as headerFunctions from './header';
-import * as homeFunctions from './home';
-import * as heroFunctions from './hero-shot';
-import * as aboutFunctions from './about-us';
+import { tabNames, createHeader, creator } from './header';
+import createHome from './home';
+import createAboutUs from './about-us';
 import * as buildFunctions from './build-salad';
 import * as dealsFunctions from './deals';
 
 const content = document.getElementById('content');
 
-const tabNames = ['HOME', 'MENU', 'ABOUT US', 'CONTACT'];
-const header = headerFunctions.creator(content, 'header');
-const navbar = headerFunctions.creator(header, 'nav');
-headerFunctions.addUlistToNav(navbar, tabNames);
+const header = createHeader(content, tabNames);
+const main = creator(content, 'main');
+const footer = creator(content, 'footer');
+// const home = createHome(main, 'home', 2);
+const aboutUs = createAboutUs(main, 1);
 
-const main = headerFunctions.creator(content, 'main');
-headerFunctions.creator(content, 'footer');
+
+document.getElementById('home-logo').addEventListener('click', () => {
+  createHome(main, 'home', 2);
+});
+
+/*const aTags = document.getElementsByTagName('ul')[0].children;
+const callPage = [
+  createHome(main),
+
+];
+
+for (let i = 0; i < aTags.length; i += 1) {
+  aTags[i].addEventListener('click', () => {
+
+  });
+}*/
+
+/*
 homeFunctions.createBackground(content);
 homeFunctions.createArticles(main);
 homeFunctions.addSectionsToArticles();
@@ -26,3 +42,4 @@ aboutFunctions.addContentAboutUs();
 buildFunctions.addContentToBuildSalad();
 dealsFunctions.addContentToDeals();
 dealsFunctions.shortMenuContent(dealsFunctions.shortMenuInfo);
+*/

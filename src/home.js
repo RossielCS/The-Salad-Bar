@@ -1,32 +1,6 @@
 import { creator } from './header';
 
-/*
-const ElementFactory = (newElement, parent, typeAtr, nameAtr) => {
-  const getName = () => name;
-  const getPiece = () => piece;
-  const getScore = () => score;
-  const createElement = () => {
-    const child = document.createElement(`${newElement}`);
-    parent.appendChild(child);
-    return child;
-  };
-  const addAtribute = () => {
-    if (typeAtr === 'class') {
-      createElement.setAttribute('class', `${nameAtr}`);
-    }
-  };
-  return {
-    getName,
-    getPiece,
-    getScore,
-    updateScore() {
-      score += 1;
-    },
-  };
-};
-*/
-
-export function createBackground(content) {
+/* export function createBackground(content) {
   const bgDivContainer = creator(content, 'div', content.childNodes[0]);
   bgDivContainer.setAttribute('class', 'container-bg');
   for (let i = 0; i < 7; i += 1) {
@@ -35,26 +9,44 @@ export function createBackground(content) {
   }
   return bgDivContainer;
 }
+*/
 
-export function createArticles(main) {
-  for (let i = 0; i < 7; i += 1) {
-    const article = creator(main, 'article', 'append');
-    article.setAttribute('id', `art${i}`);
-  }
-  return main.children;
+function createArticle(main, name) {
+  const article = creator(main, 'article', 'append');
+  article.setAttribute('id', `art-${name}`);
+  return article;
 }
 
-export function addSectionsToArticles() {
-  const arr = [
-    document.getElementById('art0'),
-    document.getElementById('art1'),
-    document.getElementById('art3'),
-    document.getElementById('art6'),
-  ];
-  for (let i = 0; i < arr.length; i += 1) {
-    for (let j = 0; j < 2; j += 1) {
-      const section = creator(arr[i], 'div', 'append');
-      section.setAttribute('class', `${arr[i].id}-sect`);
-    }
+function addSectionsToArticle(article, numSections) {
+  for (let i = 0; i < numSections; i += 1) {
+    const section = creator(article, 'section', 'append');
+    section.setAttribute('class', `${article.id}-sect`);
+
+    const h2 = creator(section, 'h2', 'append');
+    h2.setAttribute('class', 'hidden');
   }
+  return article.children;
 }
+
+function addContentToHome(article) {
+  const art0 = article.children[1];
+  const title = creator(art0, 'h1', 'append');
+  title.innerHTML = 'Pellentesque dignissim enim sit amet venenatis.';
+
+  const pElement = creator(art0, 'p', 'append');
+  pElement.innerHTML = 'Sed egestas egestas fringilla phasellus faucibus. Sed pulvinar proin gravida hendrerit lectus a.';
+
+  const button = creator(art0, 'button', 'append');
+  button.innerHTML = 'GET PRICES';
+  button.addEventListener('click', () => {
+  });
+}
+
+function createHome(main, name, numSections) {
+  const article = createArticle(main, name);
+  addSectionsToArticle(article, numSections);
+  addContentToHome(article);
+  return article;
+}
+
+export { createHome, createArticle, addSectionsToArticle };
