@@ -1,12 +1,21 @@
 import { creator } from './header';
 
+export const shortMenuInfo = {
+  '01': 'Make Store-Bought Tomato Sauce Taste 10x Better',
+  '02': 'The $3.99 Lunch Our Editor-in-Chief Swears By',
+  '03': 'Red Leaf Salad with Tofu and Sesame Dressing',
+  '04': 'Set Your Kitchen, Save Your Body',
+};
+
 function dealsList(parent) {
   const menuList = creator(parent, 'ul', 'append');
   for (let i = 0; i < 4; i += 1) {
-    const container = creator(menuList, 'div', 'append');
-    container.setAttribute('id', `short-menu${i}`);
-    creator(container, 'p', 'append');
-    creator(container, 'li', 'append');
+    const aTag = creator(menuList, 'a', 'append');
+    aTag.setAttribute('href', '#');
+    const li = creator(aTag, 'li', 'append');
+    li.setAttribute('id', `deals-menu${i}`);
+    creator(li, 'p', 'append');
+    creator(li, 'div', 'append');
   }
   return menuList;
 }

@@ -25,4 +25,4 @@ heroFunctions.addContentToHeroShot();
 aboutFunctions.addContentAboutUs();
 buildFunctions.addContentToBuildSalad();
 dealsFunctions.addContentToDeals();
-dealsFunctions.shortMenuContent();
+dealsFunctions.shortMenuContent(dealsFunctions.shortMenuInfo);

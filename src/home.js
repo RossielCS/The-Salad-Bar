@@ -26,13 +26,6 @@ const ElementFactory = (newElement, parent, typeAtr, nameAtr) => {
 };
 */
 
-export const shortMenuInfo = {
-  '01': 'Make Store-Bought Tomato Sauce Taste 10x Better',
-  '02': 'The $3.99 Lunch Our Editor-in-Chief Swears By',
-  '03': 'Red Leaf Salad with Tofu and Sesame Dressing',
-  '04': 'Set Your Kitchen, Save Your Body',
-};
-
 export function createBackground(content) {
   const bgDivContainer = creator(content, 'div', content.childNodes[0]);
   bgDivContainer.setAttribute('class', 'container-bg');
