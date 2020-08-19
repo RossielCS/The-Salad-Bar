@@ -182,7 +182,7 @@ main {
   .art-promotions-sect:nth-child(1) {
     position: relative;
 
-    @include background-image('deals_01.png', center, no-repeat, 90%);
+    @include background-image('deals_00.png', center, no-repeat, 90%);
 
     p {
       position: absolute;
@@ -222,6 +222,7 @@ main {
 
         &:hover {
           color: $terciary-color;
+          cursor: pointer;
         }
       }
 
