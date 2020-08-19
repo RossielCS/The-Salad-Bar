@@ -38,8 +38,6 @@ function addContentToHome(article) {
 
   const button = creator(art0, 'button', 'append');
   button.innerHTML = 'GET PRICES';
-  button.addEventListener('click', () => {
-  });
 }
 
 function createHome(main, name, numSections) {

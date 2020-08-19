@@ -11,40 +11,7 @@
   font-weight: 400;
   color: $primary-color-dark;
 }
-/*
-.container-bg {
-  grid-column: 1/4;
-  grid-row: 1/6;
-  width: 100%;
 
-  div {
-    height: $view-height;
-  }
-
-  #background0,
-  #background4 {
-    background-color: $secondary-color;
-  }
-
-  #background1 {
-    height: calc(#{$view-height} + 150px);
-  }
-
-  #background1,
-  #background3,
-  #background6 {
-    background-color: $primary-color-light;
-  }
-
-  #background2 {
-    @include background-image('bg_art02.jpg', center, no-repeat, cover);
-  }
-
-  #background5 {
-    @include background-image('home_bg06.jpg', center, no-repeat, cover);
-  }
-}
-*/
 header {
   grid-column: 2/3;
   grid-row: 1/2;
@@ -102,6 +69,57 @@ main {
   display: none;
 }
 
+#art-about-us {
+  position: relative;
+  padding-top: 70px;
+  text-align: start;
+
+  @include background-image('aboutus_00.png', center, repeat, cover);
+
+  .art-about-us-sect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 4%;
+    max-width: 45%;
+    background-color: rgba(255, 255, 255, 0.9);
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 3.7rem;
+      font-family: 'Amiri', serif;
+
+      // color: transparent;
+      // background-clip: content-box;
+      // -webkit-background-clip: text;
+      // background-attachment: fixed;
+    }
+
+    p {
+      margin-bottom: 30px;
+      font-size: 1.3rem;
+      line-height: 1.6rem;
+    }
+
+    button {
+      padding: 2% 4% 1% 4%;
+      font-size: 1.5rem;
+      font-family: 'Baloo Tamma 2', cursive;
+      border: none;
+      color: $primary-color-light;
+      background-color: $primary-color-dark;
+      outline: none;
+
+      &:hover {
+        color: $primary-color-dark;
+        background-color: transparent;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
 #art-home {
   @include flex(row, space-between, center);
 
@@ -149,36 +167,71 @@ main {
   }
 }
 
-#art-about-us {
-  padding-top: 70px;
-  text-align: start;
+#art-promotions {
+  padding: 0 30px;
 
-  @include background-image('aboutus_01.png', right, repeat, cover);
+  @include flex(row, space-between, center);
 
-  .art-about-us-sect {
-    margin-top: 8%;
-    margin-left: 30%;
-    padding: 4%;
-    max-width: 45%;
-    background-color: rgba(255, 255, 255, 0.9);
+  .art-promotions-sect {
+    position: relative;
+    height: 100%;
+    width: 50%;
+    padding: 0 60px;
+  }
 
-    h1 {
-      margin-bottom: 30px;
-      font-size: 3.7rem;
-      font-family: 'Amiri', serif;
+  .art-promotions-sect:nth-child(1) {
+    position: relative;
 
-      // color: transparent;
-      // background-clip: content-box;
-      // -webkit-background-clip: text;
-      // background-attachment: fixed;
-    }
+    @include background-image('deals_01.png', center, no-repeat, 90%);
 
     p {
-      font-size: 1.5rem;
-      line-height: 1.9rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 2.5vh;
+      max-width: 50%;
+      text-align: center;
+      font-size: 2rem;
+      font-family: 'Amiri', serif;
+      background-color: rgba(255, 255, 255, 0.85);
+    }
+  }
+
+  .art-promotions-sect:nth-child(2) {
+    ul {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+
+      li {
+        max-width: 75%;
+        height: 13vh;
+        padding-right: 5%;
+
+        @include flex(row, flex-start, center);
+
+        div {
+          min-width: 15%;
+        }
+
+        p {
+          font-size: 1.2rem;
+          font-family: 'Amiri', serif;
+        }
+
+        &:hover {
+          color: $terciary-color;
+        }
+      }
+
+      li:nth-child(-n+3) {
+        border-bottom: 1px solid $primary-color-medium;
+      }
     }
   }
 }
+
 /*
 #art2 {
   @include flex(column, center, center);
@@ -213,123 +266,5 @@ main {
   }
 }
 
-#art0 {
-  @include flex(row, space-between, center);
-
-  .art0-sect:nth-child(1) {
-    width: 50%;
-    height: 100%;
-
-    @include background-image('home_art0.png', center, no-repeat, contain);
-  }
-
-  .art0-sect:nth-child(2) {
-    width: 45%;
-    height: 100%;
-    padding-top: 10px;
-    padding-right: 60px;
-
-    h1 {
-      margin-bottom: 20px;
-      font-family: 'Amiri', serif;
-      font-size: 3.3rem;
-    }
-
-    p {
-      margin-bottom: 20px;
-      font-size: 1.3rem;
-      line-height: 1.9rem;
-    }
-
-    button {
-      padding: 12px 21px 8px 21px;
-      font-size: 1.6rem;
-      font-weight: 500;
-      border: none;
-      font-family: 'Baloo Tamma 2', cursive;
-      color: $primary-color-light;
-      background-color: $primary-color-dark;
-
-      &:hover {
-        background-color: $secondary-color;
-        color: $primary-color-dark;
-        cursor: pointer;
-      }
-    }
-  }
-}
-
-#art3 {
-  padding: 0 30px;
-
-  @include flex(row, space-between, center);
-
-  .art3-sect {
-    position: relative;
-    height: 100%;
-    width: 50%;
-    padding: 0 60px;
-  }
-
-  .art3-sect:nth-child(1) {
-    position: relative;
-
-    @include background-image('deals_01.png', center, no-repeat, contain);
-
-    p {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      padding: 2.5vh;
-      max-width: 70%;
-      text-align: center;
-      font-size: 2rem;
-      font-family: 'Amiri', serif;
-      background-color: rgba(255, 255, 255, 0.85);
-    }
-  }
-
-  .art3-sect:nth-child(2) {
-    ul {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-
-      a {
-        text-decoration: none;
-        color: $primary-color-dark;
-
-        li {
-          max-width: 75%;
-          height: 13vh;
-          padding-right: 5%;
-
-          @include flex(row, flex-start, center);
-
-          p {
-            min-width: 15%;
-          }
-
-          div {
-            font-size: 1.2rem;
-            font-family: 'Amiri', serif;
-          }
-        }
-
-        li:nth-child(-n+3) {
-          border-bottom: 1px solid $primary-color-medium;
-        }
-
-        &:hover {
-          color: $terciary-color;
-
-          li {
-            border-bottom: 1px solid $terciary-color;
-          }
-        }
-      }
-    }
-  }
-}
 */
 /*# sourceMappingURL=style.css.map */
