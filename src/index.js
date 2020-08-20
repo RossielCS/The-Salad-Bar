@@ -1,5 +1,6 @@
 import './assets/stylesheets/style.scss';
-import { tabNames, createHeader, creator } from './header';
+import * as builders from './builders';
+import { tabNames, createHeader } from './header';
 import { createHome } from './home';
 import { createMenu, saladsNames, saladsImages } from './menu';
 import { createPromotions, dealsInfo, dealsBgImages } from './promotions';
@@ -9,8 +10,7 @@ import createContact from './contact';
 const content = document.getElementById('content');
 
 createHeader(content, tabNames);
-const main = creator(content, 'main');
-// creator(content, 'footer');
+const main = builders.creator(content, 'main');
 createHome(main, 'home', 2);
 const navbarLinks = document.getElementsByTagName('ul')[0];
 

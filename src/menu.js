@@ -1,4 +1,4 @@
-import { creator } from './header';
+import * as builders from './builders';
 import salad00 from './assets/images/menu_00.png';
 import salad01 from './assets/images/menu_01.png';
 import salad02 from './assets/images/menu_02.png';
@@ -33,17 +33,17 @@ const saladsNames = {
 };
 
 function createArticle(main, name) {
-  const article = creator(main, 'article', 'append');
+  const article = builders.creator(main, 'article', 'append');
   article.setAttribute('id', `art-${name}`);
   return article;
 }
 
 function addSectionsToArticle(article, numSections) {
   for (let i = 0; i < numSections; i += 1) {
-    const section = creator(article, 'section', 'append');
+    const section = builders.creator(article, 'section', 'append');
     section.setAttribute('class', `${article.id}-sect`);
 
-    const h2 = creator(section, 'h2', 'append');
+    const h2 = builders.creator(section, 'h2', 'append');
     h2.setAttribute('class', 'hidden');
     h2.innerHTML = 'Hidden';
   }
@@ -51,11 +51,11 @@ function addSectionsToArticle(article, numSections) {
 }
 
 function addCategoriesList(sections, categories) {
-  const title = creator(sections[0], 'h1', 'append');
-  const listContainer = creator(sections[0], 'ul', 'append');
+  const title = builders.creator(sections[0], 'h1', 'append');
+  const listContainer = builders.creator(sections[0], 'ul', 'append');
   title.innerHTML = 'THE SALAD BAR TABLE';
   for (let i = 1; i < 3; i += 1) {
-    const li = creator(listContainer, 'li', 'append');
+    const li = builders.creator(listContainer, 'li', 'append');
     li.innerHTML = categories[`0${i}`];
     li.setAttribute('id', `menu-cat${i - 1}`);
   }
@@ -64,11 +64,11 @@ function addCategoriesList(sections, categories) {
 
 function createInfo(menuCell, index, saladsNames) {
   menuCell.setAttribute('class', 'menu-salad-info');
-  const title = creator(menuCell, 'h3', 'append');
+  const title = builders.creator(menuCell, 'h3', 'append');
   title.innerHTML = saladsNames;
-  const para = creator(menuCell, 'p', 'append');
+  const para = builders.creator(menuCell, 'p', 'append');
   para.innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-  const price = creator(menuCell, 'p', 'append');
+  const price = builders.creator(menuCell, 'p', 'append');
   price.setAttribute('class', 'menu-price');
   price.innerHTML = 'FROM: $10.00';
 }
@@ -81,13 +81,13 @@ function createBg(menuCell, index, saladsImages) {
 function addSaladsInfoToSection(sections, saladsNames, saladsImages) {
   for (let i = 0; i < 6; i += 1) {
     if (i === 2 || i === 3) {
-      const menuCellImg = creator(sections[1], 'div', 'append');
-      const menuCellText = creator(sections[1], 'div', 'append');
+      const menuCellImg = builders.creator(sections[1], 'div', 'append');
+      const menuCellText = builders.creator(sections[1], 'div', 'append');
       createBg(menuCellImg, i, saladsImages[i]);
       createInfo(menuCellText, i, saladsNames[i]);
     } else {
-      const menuCellText = creator(sections[1], 'div', 'append');
-      const menuCellImg = creator(sections[1], 'div', 'append');
+      const menuCellText = builders.creator(sections[1], 'div', 'append');
+      const menuCellImg = builders.creator(sections[1], 'div', 'append');
       createInfo(menuCellText, i, saladsNames[i]);
       createBg(menuCellImg, i, saladsImages[i]);
     }

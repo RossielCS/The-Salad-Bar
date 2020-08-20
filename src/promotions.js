@@ -1,5 +1,4 @@
-import { creator } from './header';
-import { createArticle, addSectionsToArticle } from './home';
+import * as builders from './builders';
 import dealsImg0 from './assets/images/deals_00.png';
 import dealsImg1 from './assets/images/deals_01.png';
 import dealsImg2 from './assets/images/deals_02.png';
@@ -20,13 +19,13 @@ const dealsBgImages = {
 };
 
 function createDealsList(section, dealsInfo) {
-  const menuList = creator(section, 'ul', 'append');
+  const menuList = builders.creator(section, 'ul', 'append');
   for (let i = 0; i < 4; i += 1) {
-    const li = creator(menuList, 'li', 'append');
+    const li = builders.creator(menuList, 'li', 'append');
     li.setAttribute('id', `promo-menu${i}`);
-    const number = creator(li, 'div', 'append');
+    const number = builders.creator(li, 'div', 'append');
     number.innerHTML = `0${i + 1}`;
-    const info = creator(li, 'p', 'append');
+    const info = builders.creator(li, 'p', 'append');
     info.innerHTML = dealsInfo[`promo-menu${i}`];
   }
   return menuList;
@@ -34,7 +33,7 @@ function createDealsList(section, dealsInfo) {
 
 function addContentToSections(sections, dealsInfo) {
   const sect0 = sections[0];
-  const text0 = creator(sect0, 'p', 'append');
+  const text0 = builders.creator(sect0, 'p', 'append');
   const sect1 = sections[1];
   createDealsList(sect1, dealsInfo);
   return text0;
@@ -65,8 +64,8 @@ function addEventToLi(dealsBgImages, dealsInfo, paragraph) {
 }
 
 function createPromotions(main, numSections, dealsInfo, dealsBgImages) {
-  const article = createArticle(main, 'promotions');
-  const sections = addSectionsToArticle(article, numSections);
+  const article = builders.createArticle(main, 'promotions');
+  const sections = builders.addSectionsToArticle(article, numSections);
   const section0Para = addContentToSections(sections, dealsInfo);
   addEventToLi(dealsBgImages, dealsInfo, section0Para);
   return article;

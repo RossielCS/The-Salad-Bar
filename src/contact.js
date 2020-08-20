@@ -1,5 +1,4 @@
-import { creator } from './header';
-import { createArticle } from './home';
+import * as builders from './builders';
 
 function addAttributes(element, name, type, pattern = '') {
   element.setAttribute('id', `${name}`);
@@ -10,34 +9,34 @@ function addAttributes(element, name, type, pattern = '') {
 }
 
 function createForm(article) {
-  const form = creator(article, 'form', 'append');
+  const form = builders.creator(article, 'form', 'append');
 
-  const nameLabel = creator(form, 'label', 'append');
+  const nameLabel = builders.creator(form, 'label', 'append');
   nameLabel.setAttribute('for', 'username');
   nameLabel.innerHTML = 'Full Name:';
-  const name = creator(form, 'input', 'append');
+  const name = builders.creator(form, 'input', 'append');
   addAttributes(name, 'name', 'text', '\\w{4,15}');
 
-  const emailLabel = creator(form, 'label', 'append');
+  const emailLabel = builders.creator(form, 'label', 'append');
   emailLabel.setAttribute('for', 'email');
   emailLabel.innerHTML = 'E-mail:';
-  const emailInput = creator(form, 'input', 'append');
+  const emailInput = builders.creator(form, 'input', 'append');
   addAttributes(emailInput, 'email', 'email', '[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$');
 
-  const textLabel = creator(form, 'label', 'append');
+  const textLabel = builders.creator(form, 'label', 'append');
   textLabel.setAttribute('for', 'comment');
   textLabel.innerHTML = 'Message:';
-  const textArea = creator(form, 'textarea', 'append');
+  const textArea = builders.creator(form, 'textarea', 'append');
   addAttributes(textArea, 'comment', 'text', '\\.{20,500}');
 
-  const submitBtn = creator(form, 'button', 'append');
+  const submitBtn = builders.creator(form, 'button', 'append');
   submitBtn.setAttribute('type', 'submit');
   submitBtn.innerHTML = 'SUBMIT';
 }
 
 function createContact(main) {
-  const article = createArticle(main, 'contact');
-  const title = creator(article, 'h1', 'append');
+  const article = builders.createArticle(main, 'contact');
+  const title = builders.creator(article, 'h1', 'append');
   title.innerHTML = 'Contact Us';
   createForm(article);
   return article;
