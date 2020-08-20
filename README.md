@@ -1,6 +1,7 @@
 # Restaurant-Page
 
-> In this project, I build a web app 
+> In this project, I built a website for a catering service called 'The Salad Bar'.
+Here I applied DOM manipulation by dynamically rendering the website using JavaScript, Modules, and Webpack.
 
 ## Screenshot
 
@@ -41,6 +42,7 @@ To run the project:
 
 
 ## :gem:  Features
+- All content is generated using JavaScript.
 
 ## :woman:  Author
 
