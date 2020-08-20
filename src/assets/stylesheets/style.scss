@@ -167,6 +167,65 @@ main {
   }
 }
 
+#art-menu {
+  .art-menu-sect:nth-child(1) {
+    margin-top: 4%;
+    margin-bottom: 3%;
+
+    @include flex(column, space-around, center);
+
+    h1 {
+      font-size: 2.5rem;
+      font-family: 'Amiri', serif;
+    }
+
+    ul {
+      width: 30%;
+      margin-top: 5%;
+      //margin-left: -2.3%;
+
+      @include flex(row, space-between, center);
+
+      li {
+        font-size: 1.2rem;
+
+        &:hover {
+          color: $terciary-color;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .art-menu-sect:nth-child(2) {
+    height: 70%;
+    width: 60%;
+    margin: auto;
+    display: grid;
+    grid-gap: 2vh;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+
+    .menu-salad-info {
+      padding: 10%;
+
+      @include flex(column, space-around, flex-start);
+
+      h3 {
+        font-size: 1.1rem;
+        font-family: 'Amiri', serif;
+      }
+    }
+
+    .menu-salad-bg {
+      padding: 10%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+}
+
 #art-promotions {
   padding: 0 30px;
 
@@ -233,61 +292,54 @@ main {
   }
 }
 
-#art-menu {
-  .art-menu-sect:nth-child(1) {
-    margin-top: 4%;
-    margin-bottom: 3%;
+#art-contact {
+  margin-top: 4%;
 
-    @include flex(column, space-around, center);
-
-    h1 {
-      font-size: 2.5rem;
-      font-family: 'Amiri', serif;
-    }
-
-    ul {
-      width: 30%;
-      margin-top: 5%;
-      //margin-left: -2.3%;
-
-      @include flex(row, space-between, center);
-
-      li {
-        font-size: 1.2rem;
-
-        &:hover {
-          color: $terciary-color;
-          cursor: pointer;
-        }
-      }
-    }
+  h1 {
+    font-size: 2.5rem;
+    font-family: 'Amiri', serif;
+    text-align: center;
   }
 
-  .art-menu-sect:nth-child(2) {
-    height: 70%;
-    width: 60%;
-    margin: auto;
-    display: grid;
-    grid-gap: 2vh;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+  form {
+    padding: 5vh;
+    min-width: 50%;
+    max-width: 60%;
+    margin: 0 auto;
 
-    .menu-salad-info {
-      padding: 10%;
+    @include flex(column, center, flex-start);
 
-      @include flex(column, space-around, flex-start);
-
-      h3 {
-        font-size: 1.1rem;
-        font-family: 'Amiri', serif;
-      }
+    #name,
+    #email,
+    #comment {
+      width: 100%;
     }
 
-    .menu-salad-bg {
-      padding: 10%;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
+    #name,
+    #email {
+      margin-bottom: 20px;
+    }
+
+    #comment {
+      height: 100px;
+    }
+
+    button {
+      margin: 20px auto;
+      padding-top: 0.5vh;
+      width: 15vw;
+      height: 5vh;
+      border: none;
+      font-family: 'Baloo Tamma 2', cursive;
+      font-size: 1.2rem;
+      color: $primary-color-light;
+      background-color: $primary-color-dark;
+
+      &:hover {
+        color: $primary-color-dark;
+        background-color: transparent;
+        cursor: pointer;
+      }
     }
   }
 }
