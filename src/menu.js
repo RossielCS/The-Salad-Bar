@@ -13,60 +13,101 @@ import salad09 from './assets/images/menu_09.png';
 import salad10 from './assets/images/menu_10.png';
 import salad11 from './assets/images/menu_11.png';
 
-const saladsImages = {
-  classics: [salad00, salad01, salad02, salad03, salad04, salad05],
-  specials: [salad06, salad07, salad08, salad09, salad10, salad11],
-};
-
 const categories = {
   '01': 'Classics',
   '02': 'Our Specials',
 };
 
-const saladsNames = {
-  '01': 'Chicken Fajita Salad',
-  '03': 'Chicken Avocado',
-  '05': 'Blackberry Lime Fruit Salas',
-  '07': 'Asian Crab and Cucumber Salad',
-  '09': 'Thai Steak Salad',
-  '011': 'Winter Fruit Salad',
+const saladsImages = {
+  'menu-cat0': [salad00, salad01, salad02, salad03, salad04, salad05],
+  'menu-cat1': [salad06, salad07, salad08, salad09, salad10, salad11],
 };
 
-function addCategoriesToSection(sections, categories) {
+const saladsNames = {
+  'menu-cat0': [
+    'House Salad', 'Fajita Chicken with Avocado', 'Blackberry Lime Fruit',
+    'Asian Crab and Cucumber', 'Thai Steak', 'Winter Fruit', 'Caesar with Chicken'],
+  'menu-cat1': [
+    'Parma Ham slivers with cubes of Melon', 'Goat cheese and Mozzarella Fritters',
+    'Summer Asian Slaw', 'Tuscan bread and Tomato with Chilly',
+    'Rainbow Orzo Salad', 'Heirloom Tomato Fattoush'],
+};
+
+function addCategoriesList(sections, categories) {
   const title = creator(sections[0], 'h1', 'append');
   const listContainer = creator(sections[0], 'ul', 'append');
   title.innerHTML = 'THE SALAD BAR TABLE';
   for (let i = 1; i < 3; i += 1) {
     const li = creator(listContainer, 'li', 'append');
     li.innerHTML = categories[`0${i}`];
+    li.setAttribute('id', `menu-cat${i - 1}`);
   }
-  return listContainer.children;
+  return listContainer.childNodes;
+}
+
+function createInfo(menuCell, index, saladsNames) {
+  menuCell.setAttribute('class', 'menu-salad-info');
+  const title = creator(menuCell, 'h3', 'append');
+  title.innerHTML = saladsNames;
+  const para = creator(menuCell, 'p', 'append');
+  para.innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+  const price = creator(menuCell, 'p', 'append');
+  price.setAttribute('class', 'menu-price');
+  price.innerHTML = 'FROM: $10.00';
+}
+
+function createBg(menuCell, index, saladsImages) {
+  menuCell.setAttribute('class', 'menu-salad-bg');
+  menuCell.style.backgroundImage = `url('${saladsImages}')`;
 }
 
 function addSaladsInfoToSection(sections, saladsNames, saladsImages) {
-  for (let i = 0; i < 13; i += 1) {
-    const div = creator(sections[1], 'div', 'append');
-    if (i % 2 !== 0) {
-      div.setAttribute('class', 'menu-salad-info');
-      const title = creator(div, 'h3', 'append');
-      title.innerHTML = saladsNames[`0${i}`];
-      const para = creator(div, 'p', 'append');
-      para.innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-      const price = creator(div, 'p', 'append');
-      price.setAttribute('class', 'menu-price');
-      price.innerHTML = 'FROM: $10.00';
+  for (let i = 0; i < 6; i += 1) {
+    if (i === 2 || i === 3) {
+      const menuCellImg = creator(sections[1], 'div', 'append');
+      const menuCellText = creator(sections[1], 'div', 'append');
+      createBg(menuCellImg, i, saladsImages[i]);
+      createInfo(menuCellText, i, saladsNames[i]);
     } else {
-      div.setAttribute('class', 'menu-salad-bg');
-      div.style.backgroundImage = `url('${saladsImages.classics[i]}')`;
+      const menuCellText = creator(sections[1], 'div', 'append');
+      const menuCellImg = creator(sections[1], 'div', 'append');
+      createInfo(menuCellText, i, saladsNames[i]);
+      createBg(menuCellImg, i, saladsImages[i]);
     }
   }
+}
+
+function changeCatColor(element) {
+  const list = document.querySelectorAll('[id^=menu-cat]');
+  list.forEach(li => {
+    if (li.id !== element.id) {
+      li.style.color = '#c3c2b9';
+    }
+  });
+}
+
+function addEventToCategories(catList, sections, saladsNames, saladsImages) {
+  catList.forEach(li => {
+    li.addEventListener('click', (e) => {
+      const catId = e.target.id;
+      const elements = document.querySelectorAll('[class^="menu-salad"]');
+      if (elements.length) {
+        elements.forEach(x => {
+          x.parentNode.removeChild(x);
+        });
+      }
+      li.style.color = '#333';
+      changeCatColor(li);
+      addSaladsInfoToSection(sections, saladsNames[catId], saladsImages[catId]);
+    });
+  });
 }
 
 function createMenu(main, numSections, saladsNames, saladsImages) {
   const article = createArticle(main, 'menu');
   const sections = addSectionsToArticle(article, numSections);
-  addCategoriesToSection(sections, categories);
-  addSaladsInfoToSection(sections, saladsNames, saladsImages);
+  const catList = addCategoriesList(sections, categories);
+  addEventToCategories(catList, sections, saladsNames, saladsImages);
   return article;
 }
 

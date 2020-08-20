@@ -23,6 +23,7 @@ navbarLinks.children[0].addEventListener('click', () => {
   main.removeChild(currentPage);
   const menu = createMenu(main, 2, saladsNames, saladsImages);
   currentPage = menu;
+  document.getElementById('menu-cat0').click();
 });
 
 // Logo

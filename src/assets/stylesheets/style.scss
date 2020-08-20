@@ -254,6 +254,11 @@ main {
 
       li {
         font-size: 1.2rem;
+
+        &:hover {
+          color: $terciary-color;
+          cursor: pointer;
+        }
       }
     }
   }
