@@ -1,17 +1,6 @@
 import { creator } from './header';
 import { createMenu, saladsNames, saladsImages } from './menu';
 
-/* export function createBackground(content) {
-  const bgDivContainer = creator(content, 'div', content.childNodes[0]);
-  bgDivContainer.setAttribute('class', 'container-bg');
-  for (let i = 0; i < 7; i += 1) {
-    const bgDiv = creator(bgDivContainer, 'div', 'append');
-    bgDiv.setAttribute('id', `background${i}`);
-  }
-  return bgDivContainer;
-}
-*/
-
 function createArticle(main, name) {
   const article = creator(main, 'article', 'append');
   article.setAttribute('id', `art-${name}`);

@@ -1,5 +1,4 @@
 import { creator } from './header';
-import { createArticle, addSectionsToArticle } from './home';
 import salad00 from './assets/images/menu_00.png';
 import salad01 from './assets/images/menu_01.png';
 import salad02 from './assets/images/menu_02.png';
@@ -32,6 +31,24 @@ const saladsNames = {
     'Summer Asian Slaw', 'Tuscan bread and Tomato with Chilly',
     'Rainbow Orzo Salad', 'Heirloom Tomato Fattoush'],
 };
+
+function createArticle(main, name) {
+  const article = creator(main, 'article', 'append');
+  article.setAttribute('id', `art-${name}`);
+  return article;
+}
+
+function addSectionsToArticle(article, numSections) {
+  for (let i = 0; i < numSections; i += 1) {
+    const section = creator(article, 'section', 'append');
+    section.setAttribute('class', `${article.id}-sect`);
+
+    const h2 = creator(section, 'h2', 'append');
+    h2.setAttribute('class', 'hidden');
+    h2.innerHTML = 'Hidden';
+  }
+  return article.children;
+}
 
 function addCategoriesList(sections, categories) {
   const title = creator(sections[0], 'h1', 'append');

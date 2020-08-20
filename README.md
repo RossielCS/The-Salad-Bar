@@ -7,16 +7,17 @@ Here I applied DOM manipulation by dynamically rendering the website using JavaS
 
 ## Live Demo
 
-You can try it [here]().
+You can try it [here](https://raw.githack.com/RossielCS/Restaurant-Page/feature_restaurant_page/dist/index.html).
 
 ## :hammer:  Built With
 
 - HTML5,
 - CSS3,
-- Sass,
+- SASS,
 - Stylelint,
 - Eslint,
 - JavaScript,
+- NPM,
 - Webpack,
 - Visual Studio Code
 
@@ -37,9 +38,11 @@ To run the project:
 
 - Clone the repository with Git.
 - Open it with your IDE.
-- Install the dependencies
-`$ npm install`
-
+- Install the dependencies.  
+`npm install`
+- Build using Webpack.  
+`npx webpack --watch`
+- Now you can use a live server to open the website.
 
 ## :gem:  Features
 - All content is generated using JavaScript.
@@ -74,4 +77,3 @@ Design idea by [Masudur Rahman](https://dribbble.com/shots/6527106-Salad-Bar-Hom
 ## 📝  License
 
 This project is [MIT](lic.url) licensed.
-
