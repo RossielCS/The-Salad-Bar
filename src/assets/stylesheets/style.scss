@@ -192,7 +192,7 @@ main {
       padding: 2.5vh;
       max-width: 50%;
       text-align: center;
-      font-size: 2rem;
+      font-size: 1.7rem;
       font-family: 'Amiri', serif;
       background-color: rgba(255, 255, 255, 0.85);
     }
@@ -233,39 +233,58 @@ main {
   }
 }
 
-/*
-#art2 {
-  @include flex(column, center, center);
+#art-menu {
+  .art-menu-sect:nth-child(1) {
+    margin-top: 4%;
+    margin-bottom: 3%;
 
-  font-family: 'Amiri', serif;
-  font-weight: 700;
+    @include flex(column, space-around, center);
 
-  h3 {
-    font-size: 3rem;
-    margin-bottom: 30px;
+    h1 {
+      font-size: 2.5rem;
+      font-family: 'Amiri', serif;
+    }
+
+    ul {
+      width: 30%;
+      margin-top: 5%;
+      //margin-left: -2.3%;
+
+      @include flex(row, space-between, center);
+
+      li {
+        font-size: 1.2rem;
+      }
+    }
   }
 
-  h4 {
-    font-size: 3.5rem;
-    margin-bottom: 30px;
-  }
+  .art-menu-sect:nth-child(2) {
+    height: 70%;
+    width: 60%;
+    margin: auto;
+    display: grid;
+    grid-gap: 2vh;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
 
-  button {
-    padding: 16px 30px 10px 30px;
-    font-family: 'Baloo Tamma 2', cursive;
-    font-weight: 600;
-    font-size: 1.5rem;
-    color: $primary-color-dark;
-    border: none;
-    background-color: $primary-color-light;
+    .menu-salad-info {
+      padding: 10%;
 
-    &:hover {
-      color: $primary-color-light;
-      background-color: $primary-color-dark;
-      cursor: pointer;
+      @include flex(column, space-around, flex-start);
+
+      h3 {
+        font-size: 1.1rem;
+        font-family: 'Amiri', serif;
+      }
+    }
+
+    .menu-salad-bg {
+      padding: 10%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
     }
   }
 }
 
-*/
 /*# sourceMappingURL=style.css.map */

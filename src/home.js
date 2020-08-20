@@ -24,6 +24,7 @@ function addSectionsToArticle(article, numSections) {
 
     const h2 = creator(section, 'h2', 'append');
     h2.setAttribute('class', 'hidden');
+    h2.innerHTML = 'Hidden';
   }
   return article.children;
 }

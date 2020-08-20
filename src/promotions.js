@@ -19,13 +19,13 @@ const dealsBgImages = {
   'promo-menu3': dealsImg3,
 };
 
-function dealsList(section, dealsInfo) {
+function createDealsList(section, dealsInfo) {
   const menuList = creator(section, 'ul', 'append');
   for (let i = 0; i < 4; i += 1) {
     const li = creator(menuList, 'li', 'append');
     li.setAttribute('id', `promo-menu${i}`);
     const number = creator(li, 'div', 'append');
-    number.innerHTML = i + 1;
+    number.innerHTML = `0${i + 1}`;
     const info = creator(li, 'p', 'append');
     info.innerHTML = dealsInfo[`promo-menu${i}`];
   }
@@ -35,10 +35,8 @@ function dealsList(section, dealsInfo) {
 function addContentToSections(sections, dealsInfo) {
   const sect0 = sections[0];
   const text0 = creator(sect0, 'p', 'append');
-  //text0.innerHTML = 'Red Leaf Salad With Tofu and Sesame Dressing';
-
   const sect1 = sections[1];
-  dealsList(sect1, dealsInfo);
+  createDealsList(sect1, dealsInfo);
   return text0;
 }
 
@@ -46,23 +44,20 @@ function changeListColor(element) {
   const list = document.querySelectorAll('[id^=promo-menu]');
   list.forEach(li => {
     if (li.id !== element.id) {
-      li.childNodes.forEach(x => {
-        x.style.color = '#333';
-      });
+      li.childNodes[0].style.color = '#c3c2b9';
+      li.childNodes[1].style.color = '#333';
     }
   });
 }
 
 function addEventToLi(dealsBgImages, dealsInfo, paragraph) {
   const liContainer = document.getElementsByTagName('ul')[1].childNodes;
-  // const section0Para = document.getElementsByClassName('art-promotions-sect')[0].children[1];
   liContainer.forEach(element => {
     element.addEventListener('click', () => {
       const sections = document.getElementsByClassName('art-promotions-sect');
       sections[0].style.backgroundImage = `url('${dealsBgImages[element.id]}')`;
-      element.childNodes.forEach(x => {
-        x.style.color = '#c3c2b9';
-      });
+      element.childNodes[0].style.color = '#333';
+      element.childNodes[1].style.color = '#c3c2b9';
       changeListColor(element);
       paragraph.innerHTML = dealsInfo[`${element.id}`];
     });

@@ -1,8 +1,9 @@
 import './assets/stylesheets/style.scss';
 import { tabNames, createHeader, creator } from './header';
 import { createHome } from './home';
-import createAboutUs from './about-us';
+import { createMenu, saladsNames, saladsImages } from './menu';
 import { createPromotions, dealsInfo, dealsBgImages } from './promotions';
+import createAboutUs from './about-us';
 
 const content = document.getElementById('content');
 
@@ -10,9 +11,19 @@ createHeader(content, tabNames);
 const main = creator(content, 'main');
 creator(content, 'footer');
 
+// createMenu(main, 2, saladsNames, saladsImages);
+
+
 const home = createHome(main, 'home', 2);
 const navbarLinks = document.getElementsByTagName('ul')[0];
 let currentPage = home;
+
+// Menu
+navbarLinks.children[0].addEventListener('click', () => {
+  main.removeChild(currentPage);
+  const menu = createMenu(main, 2, saladsNames, saladsImages);
+  currentPage = menu;
+});
 
 // Logo
 document.getElementById('home-logo').addEventListener('click', () => {
