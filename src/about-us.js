@@ -1,5 +1,5 @@
 import { creator } from './header';
-import { createArticle, addSectionsToArticle } from './home';
+import { createArticle, addSectionsToArticle, addEventToButton } from './home';
 
 function addContentAboutUs(sections) {
   const sect01 = sections[0];
@@ -12,6 +12,7 @@ function addContentAboutUs(sections) {
 
   const button1 = creator(sect01, 'button', 'append');
   button1.innerHTML = 'Discover our Menu';
+  addEventToButton(button1, 'art-about-us');
 }
 
 function createAboutUs(main, numSections) {

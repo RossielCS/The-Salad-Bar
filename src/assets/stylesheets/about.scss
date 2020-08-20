@@ -1,0 +1,48 @@
+@import 'variables';
+@import 'mixins';
+
+#art-about-us {
+  position: relative;
+  padding-top: 70px;
+  text-align: start;
+
+  @include background-image('aboutus_00.png', center, repeat, cover);
+
+  .art-about-us-sect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 4%;
+    max-width: 45%;
+    background-color: rgba(255, 255, 255, 0.9);
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 3.7rem;
+      font-family: 'Amiri-Bold', serif;
+    }
+
+    p {
+      margin-bottom: 30px;
+      font-size: 1.3rem;
+      line-height: 1.6rem;
+    }
+
+    button {
+      padding: 2% 4% 1% 4%;
+      font-size: 1.5rem;
+      font-family: 'Baloo-Tamma-Regular', cursive;
+      border: none;
+      color: $primary-color-light;
+      background-color: $primary-color-dark;
+      outline: none;
+
+      &:hover {
+        color: $primary-color-dark;
+        background-color: transparent;
+        cursor: pointer;
+      }
+    }
+  }
+}

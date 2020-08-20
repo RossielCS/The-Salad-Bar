@@ -1,4 +1,5 @@
 import { creator } from './header';
+import { createMenu, saladsNames, saladsImages } from './menu';
 
 /* export function createBackground(content) {
   const bgDivContainer = creator(content, 'div', content.childNodes[0]);
@@ -29,6 +30,15 @@ function addSectionsToArticle(article, numSections) {
   return article.children;
 }
 
+function addEventToButton(button, element) {
+  button.addEventListener('click', () => {
+    const main = document.getElementsByTagName('main')[0];
+    document.getElementById(`${element}`).remove();
+    createMenu(main, 2, saladsNames, saladsImages);
+    document.getElementById('menu-cat0').click();
+  });
+}
+
 function addContentToHome(article) {
   const art0 = article.children[1];
   const title = creator(art0, 'h1', 'append');
@@ -39,6 +49,7 @@ function addContentToHome(article) {
 
   const button = creator(art0, 'button', 'append');
   button.innerHTML = 'GET PRICES';
+  addEventToButton(button, 'art-home');
 }
 
 function createHome(main, name, numSections) {
@@ -48,4 +59,6 @@ function createHome(main, name, numSections) {
   return article;
 }
 
-export { createHome, createArticle, addSectionsToArticle };
+export {
+  createHome, createArticle, addSectionsToArticle, addEventToButton,
+};

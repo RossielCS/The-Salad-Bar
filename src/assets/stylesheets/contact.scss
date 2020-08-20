@@ -1,0 +1,54 @@
+@import 'variables';
+@import 'mixins';
+
+#art-contact {
+  margin-top: 4%;
+
+  h1 {
+    font-size: 2.5rem;
+    font-family: 'Amiri-Bold', serif;
+    text-align: center;
+  }
+
+  form {
+    padding: 5vh;
+    min-width: 30%;
+    max-width: 40%;
+    margin: 0 auto;
+
+    @include flex(column, center, flex-start);
+
+    #name,
+    #email,
+    #comment {
+      width: 100%;
+    }
+
+    #name,
+    #email {
+      margin-bottom: 20px;
+    }
+
+    #comment {
+      height: 100px;
+    }
+
+    button {
+      margin: 20px auto;
+      padding-top: 0.5vh;
+      width: 15vw;
+      height: 5vh;
+      border: none;
+      font-family: 'Baloo-Tamma-Regular', cursive;
+      font-size: 1.2rem;
+      color: $primary-color-light;
+      background-color: $primary-color-dark;
+
+      &:hover {
+        color: $primary-color-dark;
+        background-color: transparent;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,14 +1,46 @@
 @import 'reset';
 @import 'variables';
 @import 'mixins';
+@import 'about';
+@import 'contact';
+@import 'home';
+@import 'menu';
+@import 'promotions';
+
+@font-face {
+  font-family: 'Baloo-Tamma-Regular';
+  src: url('../fonts/BalooTamma2-Regular.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Baloo-Tamma-Medium';
+  src: url('../fonts/BalooTamma2-Medium.ttf') format('ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Baloo-Tamma-SemiBold';
+  src: url('../fonts/BalooTamma2-SemiBold.ttf') format('ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Amiri-Bold';
+  src: url('../fonts/Amiri-Bold.ttf') format('ttf');
+  font-weight: 600;
+  font-style: normal;
+}
 
 #content {
   margin: auto;
   display: grid;
   grid-template-columns: 1fr minmax(768px, 1366px) 1fr;
   grid-template-rows: 100px repeat(auto, minmax(500px, $view-height));
-  font-family: 'Baloo Tamma 2', cursive;
-  font-weight: 400;
+  font-family: 'Baloo-Tamma-Regular', cursive;
   color: $primary-color-dark;
 }
 
@@ -67,281 +99,6 @@ main {
 
 .hidden {
   display: none;
-}
-
-#art-about-us {
-  position: relative;
-  padding-top: 70px;
-  text-align: start;
-
-  @include background-image('aboutus_00.png', center, repeat, cover);
-
-  .art-about-us-sect {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 4%;
-    max-width: 45%;
-    background-color: rgba(255, 255, 255, 0.9);
-
-    h1 {
-      margin-bottom: 30px;
-      font-size: 3.7rem;
-      font-family: 'Amiri', serif;
-
-      // color: transparent;
-      // background-clip: content-box;
-      // -webkit-background-clip: text;
-      // background-attachment: fixed;
-    }
-
-    p {
-      margin-bottom: 30px;
-      font-size: 1.3rem;
-      line-height: 1.6rem;
-    }
-
-    button {
-      padding: 2% 4% 1% 4%;
-      font-size: 1.5rem;
-      font-family: 'Baloo Tamma 2', cursive;
-      border: none;
-      color: $primary-color-light;
-      background-color: $primary-color-dark;
-      outline: none;
-
-      &:hover {
-        color: $primary-color-dark;
-        background-color: transparent;
-        cursor: pointer;
-      }
-    }
-  }
-}
-
-#art-home {
-  @include flex(row, space-between, center);
-
-  .art-home-sect:nth-child(1) {
-    height: 100%;
-    flex: 2 1 50%;
-
-    @include background-image('home_00.png', center, no-repeat, 80%);
-  }
-
-  .art-home-sect:nth-child(2) {
-    height: 100%;
-    padding-right: 4vw;
-    flex: 1 2 45%;
-
-    @include flex(column, center, flex-start);
-
-    h1 {
-      margin-bottom: 20px;
-      font-family: 'Amiri', serif;
-      font-size: 3.3rem;
-    }
-
-    p {
-      margin-bottom: 20px;
-      font-size: 1.3rem;
-      line-height: 1.9rem;
-    }
-
-    button {
-      padding: 12px 21px 8px 21px;
-      font-size: 1.6rem;
-      font-weight: 500;
-      border: none;
-      font-family: 'Baloo Tamma 2', cursive;
-      color: $primary-color-light;
-      background-color: $primary-color-dark;
-
-      &:hover {
-        background-color: $secondary-color;
-        color: $primary-color-dark;
-        cursor: pointer;
-      }
-    }
-  }
-}
-
-#art-menu {
-  .art-menu-sect:nth-child(1) {
-    margin-top: 4%;
-    margin-bottom: 3%;
-
-    @include flex(column, space-around, center);
-
-    h1 {
-      font-size: 2.5rem;
-      font-family: 'Amiri', serif;
-    }
-
-    ul {
-      width: 30%;
-      margin-top: 5%;
-      //margin-left: -2.3%;
-
-      @include flex(row, space-between, center);
-
-      li {
-        font-size: 1.2rem;
-
-        &:hover {
-          color: $terciary-color;
-          cursor: pointer;
-        }
-      }
-    }
-  }
-
-  .art-menu-sect:nth-child(2) {
-    height: 70%;
-    width: 60%;
-    margin: auto;
-    display: grid;
-    grid-gap: 2vh;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-
-    .menu-salad-info {
-      padding: 10%;
-
-      @include flex(column, space-around, flex-start);
-
-      h3 {
-        font-size: 1.1rem;
-        font-family: 'Amiri', serif;
-      }
-    }
-
-    .menu-salad-bg {
-      padding: 10%;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-  }
-}
-
-#art-promotions {
-  padding: 0 30px;
-
-  @include flex(row, space-between, center);
-
-  .art-promotions-sect {
-    position: relative;
-    height: 100%;
-    width: 50%;
-    padding: 0 60px;
-  }
-
-  .art-promotions-sect:nth-child(1) {
-    position: relative;
-
-    @include background-image('deals_00.png', center, no-repeat, 90%);
-
-    p {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding: 2.5vh;
-      max-width: 50%;
-      text-align: center;
-      font-size: 1.7rem;
-      font-family: 'Amiri', serif;
-      background-color: rgba(255, 255, 255, 0.85);
-    }
-  }
-
-  .art-promotions-sect:nth-child(2) {
-    ul {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-
-      li {
-        max-width: 75%;
-        height: 13vh;
-        padding-right: 5%;
-
-        @include flex(row, flex-start, center);
-
-        div {
-          min-width: 15%;
-        }
-
-        p {
-          font-size: 1.2rem;
-          font-family: 'Amiri', serif;
-        }
-
-        &:hover {
-          color: $terciary-color;
-          cursor: pointer;
-        }
-      }
-
-      li:nth-child(-n+3) {
-        border-bottom: 1px solid $primary-color-medium;
-      }
-    }
-  }
-}
-
-#art-contact {
-  margin-top: 4%;
-
-  h1 {
-    font-size: 2.5rem;
-    font-family: 'Amiri', serif;
-    text-align: center;
-  }
-
-  form {
-    padding: 5vh;
-    min-width: 50%;
-    max-width: 60%;
-    margin: 0 auto;
-
-    @include flex(column, center, flex-start);
-
-    #name,
-    #email,
-    #comment {
-      width: 100%;
-    }
-
-    #name,
-    #email {
-      margin-bottom: 20px;
-    }
-
-    #comment {
-      height: 100px;
-    }
-
-    button {
-      margin: 20px auto;
-      padding-top: 0.5vh;
-      width: 15vw;
-      height: 5vh;
-      border: none;
-      font-family: 'Baloo Tamma 2', cursive;
-      font-size: 1.2rem;
-      color: $primary-color-light;
-      background-color: $primary-color-dark;
-
-      &:hover {
-        color: $primary-color-dark;
-        background-color: transparent;
-        cursor: pointer;
-      }
-    }
-  }
 }
 
 /*# sourceMappingURL=style.css.map */
