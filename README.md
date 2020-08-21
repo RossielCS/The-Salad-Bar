@@ -45,9 +45,8 @@ To run the project:
 - Open it with your IDE.
 - Install the dependencies.  
 `npm install`
-- Build using Webpack.  
-`npx webpack --watch`
-- Now you can use a live server to open the website.
+- Run the website.
+`npm run start`
 
 ## :gem:  Features
 - All content is generated using JavaScript.
