@@ -1,0 +1,76 @@
+@import 'reset';
+@import 'variables';
+@import 'mixins';
+@import 'about';
+@import 'contact';
+@import 'home';
+@import 'menu';
+@import 'promotions';
+
+#content {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr minmax(768px, 1366px) 1fr;
+  grid-template-rows: 100px repeat(auto, minmax(500px, $view-height));
+  font-family: 'Baloo Tamma 2', cursive;
+  color: $primary-color-dark;
+}
+
+header {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  z-index: 2;
+  margin: 20px 0;
+  line-height: 100px;
+  font-weight: 500;
+
+  nav {
+    max-width: 850px;
+    margin: auto;
+
+    ul {
+      @include flex(row, space-around, center);
+
+      a {
+        width: 120px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 1.2rem;
+        white-space: nowrap;
+        color: $primary-color-dark;
+
+        &:hover {
+          height: 100px;
+          border-bottom: solid 5px $primary-color-medium;
+        }
+      }
+    }
+
+    #home-logo {
+      height: 100px;
+      min-width: 100px;
+
+      @include background-image('home_nav_logo.png', center, no-repeat, contain);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+main {
+  grid-column: 2/3;
+  grid-row: 2/3;
+
+  article {
+    height: 80vh;
+    width: 100%;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+/*# sourceMappingURL=style.css.map */
