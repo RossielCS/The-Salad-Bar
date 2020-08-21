@@ -2,21 +2,21 @@
 @import 'mixins';
 
 #art-promotions {
-  padding: 0 30px;
+  padding: 4% 30px;
 
   @include flex(row, space-between, center);
 
   .art-promotions-sect {
     position: relative;
     height: 100%;
-    width: 50%;
     padding: 0 60px;
   }
 
   .art-promotions-sect:nth-child(1) {
     position: relative;
+    width: 60%;
 
-    @include background-image('deals_00.png', center, no-repeat, 90%);
+    @include background-image('deals_00.png', center, no-repeat, contain);
 
     p {
       position: absolute;
@@ -27,12 +27,14 @@
       max-width: 50%;
       text-align: center;
       font-size: 1.7rem;
-      font-family: 'Amiri-Bold', serif;
+      font-family: 'Amiri', serif;
       background-color: rgba(255, 255, 255, 0.85);
     }
   }
 
   .art-promotions-sect:nth-child(2) {
+    width: 40%;
+
     ul {
       position: absolute;
       top: 50%;
@@ -51,7 +53,7 @@
 
         p {
           font-size: 1.2rem;
-          font-family: 'Amiri-Bold', serif;
+          font-family: 'Amiri', serif;
         }
 
         &:hover {

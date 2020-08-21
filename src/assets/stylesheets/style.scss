@@ -7,40 +7,12 @@
 @import 'menu';
 @import 'promotions';
 
-@font-face {
-  font-family: 'Baloo-Tamma-Regular';
-  src: url('../fonts/BalooTamma2-Regular.ttf') format('ttf');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Baloo-Tamma-Medium';
-  src: url('../fonts/BalooTamma2-Medium.ttf') format('ttf');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Baloo-Tamma-SemiBold';
-  src: url('../fonts/BalooTamma2-SemiBold.ttf') format('ttf');
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Amiri-Bold';
-  src: url('../fonts/Amiri-Bold.ttf') format('ttf');
-  font-weight: 600;
-  font-style: normal;
-}
-
 #content {
   margin: auto;
   display: grid;
   grid-template-columns: 1fr minmax(768px, 1366px) 1fr;
   grid-template-rows: 100px repeat(auto, minmax(500px, $view-height));
-  font-family: 'Baloo-Tamma-Regular', cursive;
+  font-family: 'Baloo Tamma 2', cursive;
   color: $primary-color-dark;
 }
 

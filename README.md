@@ -4,6 +4,11 @@
 Here I applied DOM manipulation by dynamically rendering the website using JavaScript, Modules, and Webpack.
 
 ## Screenshot
+<img src="./src/assets/images/screenshot_00.png" alt="screenshot" width="800"/>
+<img src="./src/assets/images/screenshot_01.png" alt="screenshot" width="800"/>
+<img src="./src/assets/images/screenshot_02.png" alt="screenshot" width="800"/>
+<img src="./src/assets/images/screenshot_03.jpg" alt="screenshot" width="800"/>
+<img src="./src/assets/images/screenshot_04.png" alt="screenshot" width="800"/>
 
 ## Live Demo
 
