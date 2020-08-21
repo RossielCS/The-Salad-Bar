@@ -45,7 +45,7 @@ To run the project:
 - Open it with your IDE.
 - Install the dependencies.  
 `npm install`
-- Run the website.
+- Run the website.   
 `npm run start`
 
 ## :gem:  Features

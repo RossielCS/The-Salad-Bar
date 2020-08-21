@@ -6,7 +6,7 @@ import dealsImg3 from './assets/images/deals_03.png';
 
 const dealsInfo = {
   'promo-menu0': 'Make Store-Bought Tomato Sauce Taste 10x Better',
-  'promo-menu1': 'The $3.99 Lunch Our Editor-in-Chief Swears By',
+  'promo-menu1': 'The $3.99 Lunch By Our Editor-in-Chief',
   'promo-menu2': 'Red Leaf Salad with Tofu and Sesame Dressing',
   'promo-menu3': 'Set Your Kitchen, Save Your Body',
 };
