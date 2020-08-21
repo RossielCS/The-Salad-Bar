@@ -1,0 +1,70 @@
+@import 'variables';
+@import 'mixins';
+
+#art-promotions {
+  padding: 4% 30px;
+
+  @include flex(row, space-between, center);
+
+  .art-promotions-sect {
+    position: relative;
+    height: 100%;
+    padding: 0 60px;
+  }
+
+  .art-promotions-sect:nth-child(1) {
+    position: relative;
+    width: 60%;
+
+    @include background-image('deals_00.png', center, no-repeat, contain);
+
+    p {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 2.5vh;
+      max-width: 50%;
+      text-align: center;
+      font-size: 1.7rem;
+      font-family: 'Amiri', serif;
+      background-color: rgba(255, 255, 255, 0.85);
+    }
+  }
+
+  .art-promotions-sect:nth-child(2) {
+    width: 40%;
+
+    ul {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+
+      li {
+        max-width: 75%;
+        height: 13vh;
+        padding-right: 5%;
+
+        @include flex(row, flex-start, center);
+
+        div {
+          min-width: 15%;
+        }
+
+        p {
+          font-size: 1.2rem;
+          font-family: 'Amiri', serif;
+        }
+
+        &:hover {
+          color: $terciary-color;
+          cursor: pointer;
+        }
+      }
+
+      li:nth-child(-n+3) {
+        border-bottom: 1px solid $primary-color-medium;
+      }
+    }
+  }
+}
